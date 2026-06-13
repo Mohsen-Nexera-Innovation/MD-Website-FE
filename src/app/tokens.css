@@ -1,0 +1,63 @@
+:root {
+  /* MD Dental brand — extracted from Company Profile 2024 + Logo assets */
+  --md-blue: #3050a0;
+  --md-blue-deep: #203878;
+  --md-blue-dark: #001050;
+  --md-blue-soft: #e8eef8;
+  --md-blue-muted: #90b0f0;
+
+  --md-gold: #ebb428;
+  --md-gold-deep: #c89410;
+  --md-gold-soft: #fff4d6;
+  --md-gold-muted: #f0e090;
+
+  /* Tricolor ribbon accent (cover / brand collateral) */
+  --md-ribbon-red: #ef4444;
+  --md-ribbon-green: #22c55e;
+  --md-ribbon-orange: #f97316;
+
+  /* Semantic shortcuts */
+  --md-primary: var(--md-gold);
+  --md-primary-deep: var(--md-gold-deep);
+  --md-primary-soft: var(--md-gold-soft);
+  --md-brand: var(--md-blue);
+  --md-brand-deep: var(--md-blue-deep);
+  --md-brand-soft: var(--md-blue-soft);
+
+  --md-white: #ffffff;
+  --md-surface: #f4f6fb;
+  --md-surface-2: #eef2f9;
+  --md-navy: var(--md-blue-dark);
+  --md-navy-card: #1a3278;
+
+  --md-ink: #0f172a;
+  --md-ink-muted: #64748b;
+  --md-ink-faint: #94a3b8;
+
+  --md-line: rgba(15, 23, 42, 0.08);
+  --md-line-strong: rgba(15, 23, 42, 0.14);
+
+  /* Coverage map zones (SRS BRAND-003) */
+  --md-zone-rep: #22c55e;
+  --md-zone-ecom: #f97316;
+  --md-zone-full: #3b82f6;
+
+  --md-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --md-dur-med: 320ms;
+  --md-transition: var(--md-dur-med) ease;
+  --md-stagger: 80ms;
+  --md-radius: 14px;
+  --md-radius-lg: 22px;
+  --md-shadow: 0 18px 50px rgba(32, 56, 120, 0.1);
+  --md-header-h: 72px;
+
+  /* Hero globe ocean — matches Earth map sea tones */
+  --md-sea-deep: #0a1850;
+  --md-sea-mid: #142858;
+  --md-sea-night: #000818;
+  --md-sea-surface: rgba(10, 24, 80, 0.82);
+  --md-sea-glass: rgba(10, 24, 80, 0.55);
+  --md-sea-line: rgba(144, 176, 240, 0.2);
+  --md-sea-glow: rgba(144, 176, 240, 0.45);
+  --md-sea-shimmer: rgba(184, 218, 255, 0.65);
+}
