@@ -1,20 +1,30 @@
-import InnerPage, { InnerCta } from '@/components/InnerPage';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import ProductDetailView from '@/components/catalog/ProductDetailView';
+import { getProductById } from '@/content/products';
 
 type Props = { params: Promise<{ id: string }> };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProductById(id);
+  if (!product) return { title: 'Product | MD Dental' };
+  return {
+    title: `${product.name} - ${product.brand} | MD Dental`,
+    description: product.description,
+  };
+}
+
 export default async function ProductDetailPage({ params }: Props) {
   const { id } = await params;
-  const title = id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  const product = getProductById(id);
+  if (!product) notFound();
 
   return (
-    <InnerPage
-      eyebrow="Product Spec"
-      title={title}
-      lead="Full specification sheet, IFU download, and Buy on MD Shop CTA — 1 click from homepage featured grid."
-      journeyFrom="catalog"
-    >
-      <p>Spec detail template (CONTENT-005) — product schema, related articles, and shop handoff.</p>
-      <InnerCta href="/register" label="Register to order" />
-    </InnerPage>
+    <div className="inner-page inner-page--products inner-page--catalog">
+      <div className="wrap">
+        <ProductDetailView product={product} />
+      </div>
+    </div>
   );
 }

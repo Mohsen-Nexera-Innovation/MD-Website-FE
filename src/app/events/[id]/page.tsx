@@ -1,20 +1,30 @@
-import InnerPage, { InnerCta } from '@/components/InnerPage';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import EventDetailView from '@/components/catalog/EventDetailView';
+import { getEventById } from '@/content/events';
 
 type Props = { params: Promise<{ id: string }> };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const event = getEventById(id);
+  if (!event) return { title: 'Event | MD Dental' };
+  return {
+    title: `${event.title} | MD Dental Events`,
+    description: event.excerpt,
+  };
+}
+
 export default async function EventDetailPage({ params }: Props) {
   const { id } = await params;
-  const title = id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  const event = getEventById(id);
+  if (!event) notFound();
 
   return (
-    <InnerPage
-      eyebrow="Event Detail"
-      title={title}
-      lead="Event registration and calendar export — linked from homepage community preview."
-      journeyFrom="proof"
-    >
-      <p>Event detail template (EPIC-R1-04) with registration form and location map.</p>
-      <InnerCta href="/register" label="Register for events" />
-    </InnerPage>
+    <div className="inner-page inner-page--reach inner-page--catalog">
+      <div className="wrap">
+        <EventDetailView event={event} />
+      </div>
+    </div>
   );
 }

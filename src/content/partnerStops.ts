@@ -7,6 +7,8 @@ export type PartnerBrand = { name: string; slug: string };
  * All stops are `phase: 'global'` so the Earth holds a clean world framing
  * and simply rotates between partner countries (no Egypt zoom/route).
  * Coordinates are country-centred for pleasant globe centring.
+ *
+ * Country ↔ brand mapping matches MD Dental Company Profile 2024 (Figma reference).
  */
 export type PartnerCountry = GlobeStop & {
   country: string;
@@ -27,7 +29,7 @@ export const PARTNER_STOPS: PartnerCountry[] = [
     flag: 'br',
     subtitle: 'Aditek · SIN',
     blurb:
-      'Implant systems and orthodontic engineering from Brazil’s advanced dental manufacturing base.',
+      'Orthodontic innovation and advanced dental solutions from Brazil — Aditek and SIN, trusted globally for research-driven quality since 1990.',
     brands: [
       { name: 'Aditek', slug: 'aditek' },
       { name: 'SIN', slug: 'sin' },
@@ -42,15 +44,10 @@ export const PARTNER_STOPS: PartnerCountry[] = [
     lon: 10.45,
     phase: 'global',
     flag: 'de',
-    subtitle: 'BMS · Heydent · PROFA · WBT',
+    subtitle: 'Heydent',
     blurb:
-      'German precision across restoratives, infection control and laboratory materials — four exclusive brands.',
-    brands: [
-      { name: 'BMS', slug: 'bms' },
-      { name: 'Heydent', slug: 'heydent' },
-      { name: 'PROFA', slug: 'profa' },
-      { name: 'WBT', slug: 'wbt' },
-    ],
+      'German dental aesthetics — Heydent composites, bonding agents and veneer cements engineered for customized, top-quality restorative results.',
+    brands: [{ name: 'Heydent', slug: 'heydent' }],
   },
   {
     id: 'usa',
@@ -63,7 +60,7 @@ export const PARTNER_STOPS: PartnerCountry[] = [
     flag: 'us',
     subtitle: 'Centrix',
     blurb:
-      'Clinically trusted dental delivery systems and restorative solutions, made in the USA.',
+      'American delivery systems that make dentistry easier — Centrix fluoride varnish, temporary cements and preventive solutions built on quality and ethics.',
     brands: [{ name: 'Centrix', slug: 'centrix' }],
   },
   {
@@ -77,7 +74,49 @@ export const PARTNER_STOPS: PartnerCountry[] = [
     flag: 'my',
     subtitle: 'TopGlove',
     blurb:
-      'World-leading glove manufacturing — high-volume, certified protection for every clinic.',
+      'The world’s largest glove manufacturer — TopGlove exports to over 2,000 customers globally, with MD Dental on a private-label collaboration.',
     brands: [{ name: 'TopGlove', slug: 'topglove' }],
+  },
+  {
+    id: 'china',
+    name: 'China',
+    country: 'China',
+    region: 'East Asia',
+    lat: 35.86,
+    lon: 104.2,
+    phase: 'global',
+    flag: 'cn',
+    subtitle: 'PROFA',
+    blurb:
+      'High-quality endodontic manufacturing from China — PROFA rotary and manual files, Glidden drills and precision obturation devices.',
+    brands: [{ name: 'PROFA', slug: 'profa' }],
+  },
+  {
+    id: 'korea',
+    name: 'South Korea',
+    country: 'South Korea',
+    region: 'East Asia',
+    lat: 36.5,
+    lon: 127.85,
+    phase: 'global',
+    flag: 'kr',
+    subtitle: 'WBT',
+    blurb:
+      'Korean orthodontic excellence — WBT advanced bracket and wire systems that enhance patient comfort and practitioner efficiency.',
+    brands: [{ name: 'WBT', slug: 'wbt' }],
+  },
+  {
+    id: 'italy',
+    name: 'Italy',
+    country: 'Italy',
+    region: 'Europe',
+    lat: 41.87,
+    lon: 12.57,
+    phase: 'global',
+    flag: 'it',
+    subtitle: 'BMS',
+    blurb:
+      'Italian impression and laboratory materials — BMS cements and impression systems trusted by modern practices for decades.',
+    brands: [{ name: 'BMS', slug: 'bms' }],
   },
 ];

@@ -74,8 +74,25 @@ export default function HeroLogoDock() {
     };
 
     const applyBodyState = (next: LogoState) => {
-      setState(next);
+      setState((prev) => (prev === next ? prev : next));
       document.body.setAttribute('data-logo-state', next);
+    };
+
+    // Keep the clone parked over the header dock while hidden so the very first
+    // float frame has no positional jump (prevents the start-of-scroll flicker).
+    const hiddenStyle = (): CSSProperties => {
+      const { left, top, height } = dockRef.current;
+      const { height: rHeight } = restRef.current;
+      const scale = rHeight && height ? height / rHeight : 1;
+      return {
+        left,
+        top,
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+        opacity: 0,
+        ['--dock-brand-o' as string]: 0,
+        ['--dock-light-o' as string]: 1,
+      };
     };
 
     let raf = 0;
@@ -88,40 +105,50 @@ export default function HeroLogoDock() {
       const raw = clamp(window.scrollY / range, 0, 1);
 
       if (reduceMotionRef.current) {
-        if (raw >= 1) {
-          applyBodyState('docked');
-          setFloatStyle(null);
-        } else {
-          applyBodyState('rest');
-          setFloatStyle(null);
-        }
+        applyBodyState(raw >= 1 ? 'docked' : 'rest');
+        setFloatStyle({ opacity: 0 });
         return;
       }
 
       if (raw >= 1) {
         applyBodyState('docked');
-        setFloatStyle(null);
+        setFloatStyle(hiddenStyle());
         return;
       }
 
       if (raw <= 0.001) {
         measureRest();
         applyBodyState('rest');
-        setFloatStyle(null);
+        // Park the clone over the resting hero logo (brand colour) so there is
+        // no colour pop the instant scrolling begins.
+        const { left, top } = restRef.current;
+        setFloatStyle({
+          left,
+          top: top - window.scrollY,
+          transform: 'scale(1)',
+          transformOrigin: 'top left',
+          opacity: 0,
+          ['--dock-brand-o' as string]: 1,
+          ['--dock-light-o' as string]: 0,
+        });
         return;
       }
 
       applyBodyState('floating');
 
       const t = smoothstep(raw);
-      const { left: rLeft, top: rTop, width: rWidth, height: rHeight } = restRef.current;
-      const { left: dLeft, top: dTop, width: dWidth, height: dHeight } = dockRef.current;
+      const { left: rLeft, top: rTop, height: rHeight } = restRef.current;
+      const { left: dLeft, top: dTop, height: dHeight } = dockRef.current;
 
       const heroTopNow = rTop - window.scrollY;
       const left = rLeft + (dLeft - rLeft) * t;
       const top = heroTopNow + (dTop - heroTopNow) * t;
-      const scale = 1 + (dHeight / rHeight - 1) * t;
-      const fadeOut = clamp((t - 0.88) / 0.12, 0, 1);
+      const scale = rHeight ? 1 + (dHeight / rHeight - 1) * t : 1;
+      // Crossfade brand → white across the first ~60% of travel so the mark
+      // matches the light card at the start and the dark header at the end.
+      const colorT = clamp(t * 1.7, 0, 1);
+      // Brief fade only at the very end as it settles onto the header logo.
+      const fadeOut = clamp((t - 0.9) / 0.1, 0, 1);
 
       setFloatStyle({
         left,
@@ -129,6 +156,8 @@ export default function HeroLogoDock() {
         transform: `scale(${scale})`,
         transformOrigin: 'top left',
         opacity: 1 - fadeOut,
+        ['--dock-brand-o' as string]: 1 - colorT,
+        ['--dock-light-o' as string]: colorT,
       });
     };
 
@@ -153,7 +182,11 @@ export default function HeroLogoDock() {
     };
   }, [isHome]);
 
-  if (!isHome || state !== 'floating' || !floatStyle) return null;
+  // The clone stays mounted on the homepage (just transparent at rest/docked)
+  // so React never tears it down mid-glide — that remount was a flicker source.
+  if (!isHome || !floatStyle) return null;
+
+  const interactive = state === 'floating';
 
   return (
     <Link
@@ -161,8 +194,11 @@ export default function HeroLogoDock() {
       className="hero-logo-float"
       style={floatStyle}
       aria-label="MD Dental home"
+      aria-hidden={!interactive}
+      tabIndex={interactive ? 0 : -1}
     >
-      <MdLogo variant="light" className="hero-md-logo" />
+      <MdLogo variant="brand" className="hero-md-logo hero-logo-dock-brand" />
+      <MdLogo variant="light" className="hero-md-logo hero-logo-dock-light" />
     </Link>
   );
 }

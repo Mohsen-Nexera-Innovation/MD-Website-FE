@@ -4,16 +4,19 @@ export type GlobeStop = {
   lat: number;
   lon: number;
   phase: 'global' | 'egypt';
-  flag: 'br' | 'de' | 'us' | 'my' | 'eg';
+  flag: 'br' | 'de' | 'us' | 'my' | 'cn' | 'kr' | 'it' | 'eg';
   subtitle?: string;
 };
 
 /** Journey: global partner origins → Egypt hub → key cities */
 export const GLOBE_STOPS: GlobeStop[] = [
   { id: 'brazil', name: 'Brazil', lat: -15.78, lon: -47.93, phase: 'global', flag: 'br', subtitle: 'Aditek · SIN' },
-  { id: 'germany', name: 'Germany', lat: 51.17, lon: 10.45, phase: 'global', flag: 'de', subtitle: 'BMS · Heydent · PROFA · WBT' },
+  { id: 'germany', name: 'Germany', lat: 51.17, lon: 10.45, phase: 'global', flag: 'de', subtitle: 'Heydent' },
   { id: 'usa', name: 'United States', lat: 41.76, lon: -72.68, phase: 'global', flag: 'us', subtitle: 'Centrix' },
   { id: 'malaysia', name: 'Malaysia', lat: 3.14, lon: 101.69, phase: 'global', flag: 'my', subtitle: 'TopGlove' },
+  { id: 'china', name: 'China', lat: 35.86, lon: 104.2, phase: 'global', flag: 'cn', subtitle: 'PROFA' },
+  { id: 'korea', name: 'South Korea', lat: 36.5, lon: 127.85, phase: 'global', flag: 'kr', subtitle: 'WBT' },
+  { id: 'italy', name: 'Italy', lat: 41.87, lon: 12.57, phase: 'global', flag: 'it', subtitle: 'BMS' },
   { id: 'egypt', name: 'Egypt', lat: 26.82, lon: 30.8, phase: 'egypt', flag: 'eg', subtitle: 'MD Dental Hub · 27 Governorates' },
   { id: 'cairo', name: 'Cairo', lat: 30.04, lon: 31.24, phase: 'egypt', flag: 'eg', subtitle: 'Cairo Governorate' },
   { id: 'alexandria', name: 'Alexandria', lat: 31.2, lon: 29.92, phase: 'egypt', flag: 'eg', subtitle: 'Alexandria Governorate' },

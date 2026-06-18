@@ -4,13 +4,16 @@ import { useEffect, useState } from 'react';
 import HeroGlobeJourney from '@/components/journey/HeroGlobeJourney';
 import { PARTNER_STOPS } from '@/content/partnerStops';
 
-type PartnersGlobeBackdropProps = {
+type PartnerCardGlobeProps = {
   /** Country index the Earth should travel to, driven by the gallery. */
   activeIndex?: number;
 };
 
-/** Partners section — live Earth, steered by the partner gallery. */
-export default function PartnersGlobeBackdrop({ activeIndex }: PartnersGlobeBackdropProps) {
+/**
+ * In-card live Earth for the Partners section. Renders on a transparent canvas
+ * so it blends with the gallery card background, steered by the active country.
+ */
+export default function PartnerCardGlobe({ activeIndex }: PartnerCardGlobeProps) {
   const [reduced, setReduced] = useState(
     () =>
       typeof window !== 'undefined' &&
@@ -26,17 +29,16 @@ export default function PartnersGlobeBackdrop({ activeIndex }: PartnersGlobeBack
   }, []);
 
   return (
-    <div className="sec-partners-globe" aria-hidden>
+    <div className="partner-card-globe" aria-hidden>
       <HeroGlobeJourney
         reduced={reduced}
         pauseRootId="partners"
         stops={PARTNER_STOPS}
         controlledIndex={activeIndex}
         showHud={false}
-        zoom={1.2}
+        variant="card"
+        zoom={0.92}
       />
-      <div className="sec-partners-veil sec-partners-veil--globe" />
-      <div className="sec-partners-mesh" />
     </div>
   );
 }

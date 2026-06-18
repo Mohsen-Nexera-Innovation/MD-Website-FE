@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FOOTER_GROUPS } from '@/content/nav';
 import MdLogo from '@/components/MdLogo';
+import SocialIcons from '@/components/SocialIcons';
 
 export default function Footer() {
   return (
@@ -11,9 +12,10 @@ export default function Footer() {
             <Link href="/" className="md-logo" style={{ marginBottom: 12 }} aria-label="MD Dental home">
               <MdLogo variant="light" className="md-logo-svg" />
             </Link>
-            <p style={{ margin: 0, maxWidth: 280, lineHeight: 1.6 }}>
-              Strategically growing for you — Egypt&apos;s exclusive distributor of global dental brands.
+            <p style={{ margin: '0 0 16px', maxWidth: 280, lineHeight: 1.6 }}>
+              The dental supply knowledge platform — Egypt&apos;s exclusive distributor of global dental brands.
             </p>
+            <SocialIcons className="footer-socials" linkClassName="footer-social" />
           </div>
           {FOOTER_GROUPS.map((group) => (
             <div key={group.title}>

@@ -49,6 +49,56 @@ export const FLAG_ART: Record<FlagCode, ReactNode> = {
       <circle cx="10.2" cy="6" r="2.5" fill="#010066" />
     </svg>
   ),
+  cn: (
+    <svg viewBox="0 0 38 24" aria-hidden className="globe-flag-svg">
+      <rect width="38" height="24" fill="#de2910" />
+      <g fill="#ffde00">
+        <g transform="translate(7.5 7) scale(3.4)">
+          <polygon points="0,-1 0.2245,-0.309 0.951,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.951,-0.309 -0.2245,-0.309" />
+        </g>
+        <g transform="translate(14.5 3.2) scale(1.1)">
+          <polygon points="0,-1 0.2245,-0.309 0.951,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.951,-0.309 -0.2245,-0.309" />
+        </g>
+        <g transform="translate(16.8 5.6) scale(1.1)">
+          <polygon points="0,-1 0.2245,-0.309 0.951,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.951,-0.309 -0.2245,-0.309" />
+        </g>
+        <g transform="translate(16.8 9) scale(1.1)">
+          <polygon points="0,-1 0.2245,-0.309 0.951,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.951,-0.309 -0.2245,-0.309" />
+        </g>
+        <g transform="translate(14.5 11.4) scale(1.1)">
+          <polygon points="0,-1 0.2245,-0.309 0.951,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.951,-0.309 -0.2245,-0.309" />
+        </g>
+      </g>
+    </svg>
+  ),
+  kr: (
+    <svg viewBox="0 0 38 24" aria-hidden className="globe-flag-svg">
+      <rect width="38" height="24" fill="#fff" />
+      <circle cx="19" cy="12" r="4.4" fill="#0047a0" />
+      <path d="M19,7.6 a4.4,4.4 0 0,1 0,8.8 a2.2,2.2 0 0,1 0,-4.4 a2.2,2.2 0 0,0 0,-4.4" fill="#cd2e3a" />
+      <g fill="#000">
+        <rect x="6.2" y="4" width="4" height="0.8" />
+        <rect x="6.2" y="5.4" width="4" height="0.8" />
+        <rect x="6.2" y="6.8" width="4" height="0.8" />
+        <rect x="27.8" y="4" width="4" height="0.8" />
+        <rect x="27.8" y="5.4" width="4" height="0.8" />
+        <rect x="27.8" y="6.8" width="4" height="0.8" />
+        <rect x="6.2" y="16.4" width="4" height="0.8" />
+        <rect x="6.2" y="17.8" width="4" height="0.8" />
+        <rect x="6.2" y="19.2" width="4" height="0.8" />
+        <rect x="27.8" y="16.4" width="4" height="0.8" />
+        <rect x="27.8" y="17.8" width="4" height="0.8" />
+        <rect x="27.8" y="19.2" width="4" height="0.8" />
+      </g>
+    </svg>
+  ),
+  it: (
+    <svg viewBox="0 0 38 24" aria-hidden className="globe-flag-svg">
+      <rect width="38" height="24" fill="#fff" />
+      <rect width="12.67" height="24" fill="#009246" />
+      <rect x="25.33" width="12.67" height="24" fill="#ce2b37" />
+    </svg>
+  ),
   eg: (
     <svg viewBox="0 0 38 24" aria-hidden className="globe-flag-svg">
       <rect width="38" height="8" fill="#ce1126" />

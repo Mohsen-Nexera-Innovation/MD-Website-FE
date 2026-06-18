@@ -1,22 +1,27 @@
-import InnerPage, { InnerCta } from '@/components/InnerPage';
+import type { Metadata } from 'next';
+import PageHero from '@/components/layout/PageHero';
+import WhyMdDentalView from '@/components/catalog/WhyMdDentalView';
+import { WHY_MD_INTRO } from '@/content/whyMd';
+
+export const metadata: Metadata = {
+  title: 'Why MD Dental',
+  description:
+    'Exclusive global brands, nationwide delivery, transparent specs, and scientific support — for dentists and manufacturers in Egypt.',
+};
 
 export default function WhyMdDentalPage() {
   return (
-    <InnerPage
-      eyebrow="Why MD Dental"
-      title="The MD Dental Advantage"
-      lead="Dual-audience positioning — value for clinicians and proof for global manufacturer partners."
-      journeyFrom="advantage"
-    >
-      <section id="for-manufacturers">
-        <h2>For Manufacturers</h2>
-        <p>Exclusive distribution, Odoo-backed ops, digital maturity, and nationwide reach across Egypt.</p>
-      </section>
-      <section style={{ marginTop: 32 }}>
-        <h2>For Dentists</h2>
-        <p>Authentic CE-certified products, transparent specs, scientific support, and Bosta delivery.</p>
-      </section>
-      <InnerCta href="/register" label="Register your clinic" />
-    </InnerPage>
+    <div className="inner-page inner-page--promise inner-page--catalog">
+      <div className="wrap">
+        <PageHero
+          breadcrumbLabel="Why MD Dental"
+          eyebrow={WHY_MD_INTRO.eyebrow}
+          title={WHY_MD_INTRO.title}
+          lead={WHY_MD_INTRO.lead}
+          journeyFrom="promise"
+        />
+        <WhyMdDentalView />
+      </div>
+    </div>
   );
 }

@@ -1,24 +1,30 @@
-import Link from 'next/link';
-import InnerPage from '@/components/InnerPage';
-import { ARTICLES_PREVIEW } from '@/content/home';
+import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import PageHero from '@/components/layout/PageHero';
+import ArticlesCatalog from '@/components/catalog/ArticlesCatalog';
+import { ARTICLES_INTRO } from '@/content/articles';
+
+export const metadata: Metadata = {
+  title: 'MD Community — Articles | MD Dental',
+  description:
+    'Clinical articles and guides from MD Dental — education organized by specialty and global partner brand.',
+};
 
 export default function ArticlesPage() {
   return (
-    <InnerPage
-      eyebrow="Educational Hub"
-      title="Articles"
-      lead="Clinical knowledge organized by specialty and brand — organic traffic driver for dentists."
-      journeyFrom="proof"
-    >
-      <div className="g3">
-        {ARTICLES_PREVIEW.map((a) => (
-          <Link key={a.slug} href={`/articles/${a.slug}`} className="content-card content-card--link">
-            <span className="tag">{a.tag}</span>
-            <h3>{a.title}</h3>
-            <div className="meta">{a.date}</div>
-          </Link>
-        ))}
+    <div className="inner-page inner-page--faq inner-page--catalog">
+      <div className="wrap">
+        <PageHero
+          breadcrumbLabel="MD Community"
+          eyebrow={ARTICLES_INTRO.eyebrow}
+          title={ARTICLES_INTRO.title}
+          lead={ARTICLES_INTRO.lead}
+        />
+
+        <Suspense fallback={<p className="catalog-loading">Loading articles…</p>}>
+          <ArticlesCatalog />
+        </Suspense>
       </div>
-    </InnerPage>
+    </div>
   );
 }

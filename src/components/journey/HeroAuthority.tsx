@@ -1,28 +1,65 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import HeroCoverageWaves from '@/components/journey/HeroCoverageWaves';
 import HeroFigmaMedia from '@/components/journey/HeroFigmaMedia';
+import type { HeroMediaController } from '@/components/journey/HeroFigmaMedia';
 import MdLogo from '@/components/MdLogo';
+import Typewriter from '@/components/Typewriter';
 import { HERO } from '@/content/home';
-import { HERO_SLIDE_MS, HERO_SLIDES } from '@/content/heroSlides';
+import { SPECIALTIES } from '@/content/specialties';
+import {
+  HERO_SLIDES,
+  HERO_VIDEO_END_TRIM_SEC,
+  HERO_VIDEO_SEGMENTS,
+  HERO_VIDEO_START_SEC,
+} from '@/content/heroSlides';
 
-const N = HERO_SLIDES.length;
-const EASE = [0.22, 1, 0.36, 1] as const;
-const SCROLL_TRACK_VH = 52;
+// Pinned stretch: how long the hero stays sticky before it releases and the
+// next section (Partners) starts scrolling up. Kept short so Partners begins
+// rising early instead of after a long dead scroll.
+const SCROLL_TRACK_VH = 26;
+// Card exit range: the leftward card slide is mapped over a LONGER scroll span
+// than the pin, so the card is still sliding off while Partners rises into
+// view — the two transitions overlap instead of running back-to-back.
+const EXIT_SCROLL_VH = 64;
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
 }
 
+/** End of the playable window, in seconds (duration minus the outro trim). */
+function playableEnd(duration: number) {
+  return Math.max(duration - HERO_VIDEO_END_TRIM_SEC, HERO_VIDEO_START_SEC + 1);
+}
+
+/**
+ * Map a video playback time to the active stepper beat + progress within it.
+ * Segments are fractions of the PLAYABLE window [start, duration − end-trim],
+ * so the Global / National / Trusted nodes stay locked to the footage.
+ */
+function beatFromTime(time: number, duration: number) {
+  if (!duration || Number.isNaN(duration)) return { index: 0, progress: 0 };
+  const span = Math.max(playableEnd(duration) - HERO_VIDEO_START_SEC, 0.001);
+  const local = clamp((time - HERO_VIDEO_START_SEC) / span, 0, 1);
+  let index = 0;
+  for (let i = 0; i < HERO_VIDEO_SEGMENTS.length; i += 1) {
+    if (local >= HERO_VIDEO_SEGMENTS[i]) index = i;
+  }
+  const segStart = HERO_VIDEO_SEGMENTS[index];
+  const segEnd = index + 1 < HERO_VIDEO_SEGMENTS.length ? HERO_VIDEO_SEGMENTS[index + 1] : 1;
+  const progress = segEnd > segStart ? clamp((local - segStart) / (segEnd - segStart), 0, 1) : 0;
+  return { index, progress };
+}
+
 export default function HeroAuthority() {
   const sectionRef = useRef<HTMLElement>(null);
+  const controllerRef = useRef<HeroMediaController | null>(null);
+  const lastLoopRef = useRef(0);
   const [active, setActive] = useState(0);
   const [exitProgress, setExitProgress] = useState(0);
-  const [slideProgress, setSlideProgress] = useState(0);
-  const slideStartRef = useRef(Date.now());
   const [reduceMotion, setReduceMotion] = useState(
     () =>
       typeof window !== 'undefined' &&
@@ -37,54 +74,53 @@ export default function HeroAuthority() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
+  // The video is the master clock: a rAF loop reads the player's currentTime and
+  // drives the active beat (React state, changes ~3×/loop) for accent / wave styling.
   useEffect(() => {
-    slideStartRef.current = Date.now();
-    setSlideProgress(0);
-  }, [active]);
-
-  useEffect(() => {
-    if (reduceMotion) {
-      setSlideProgress(0);
-      return;
-    }
-
     let raf = 0;
-    const tick = () => {
-      const elapsed = Date.now() - slideStartRef.current;
-      setSlideProgress(Math.min(elapsed / HERO_SLIDE_MS, 1));
-      raf = requestAnimationFrame(tick);
+    const loop = () => {
+      const ctrl = controllerRef.current;
+      if (ctrl) {
+        const duration = ctrl.getDuration();
+        if (duration && !Number.isNaN(duration)) {
+          const current = ctrl.getCurrentTime();
+          // Loop back to the start offset once we reach the trimmed end, so the
+          // outro (last HERO_VIDEO_END_TRIM_SEC seconds) is never shown.
+          const now = performance.now();
+          if (current >= playableEnd(duration) && now - lastLoopRef.current > 800) {
+            lastLoopRef.current = now;
+            ctrl.seek(HERO_VIDEO_START_SEC);
+          }
+          const { index } = beatFromTime(current, duration);
+          setActive(index);
+        }
+      }
+      raf = requestAnimationFrame(loop);
     };
-
-    raf = requestAnimationFrame(tick);
+    raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, [active, reduceMotion]);
+  }, []);
 
+  // Play only while the hero is on screen (and motion is allowed); pause when
+  // scrolled away. Reduced-motion users get a static poster (no player).
   useEffect(() => {
     if (reduceMotion) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const hero = document.getElementById('authority');
-    let playing = true;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const ctrl = controllerRef.current;
+        if (!ctrl) return;
+        if (entry.isIntersecting) ctrl.play();
+        else ctrl.pause();
+      },
+      { threshold: 0.12 },
+    );
+    io.observe(section);
 
-    const io = hero
-      ? new IntersectionObserver(
-          ([entry]) => {
-            playing = entry.isIntersecting;
-          },
-          { threshold: 0.12 },
-        )
-      : null;
-    if (hero) io?.observe(hero);
-
-    const iv = window.setInterval(() => {
-      if (playing && exitProgress < 0.35) setActive((a) => (a + 1) % N);
-    }, HERO_SLIDE_MS);
-
-    return () => {
-      window.clearInterval(iv);
-      if (hero) io?.unobserve(hero);
-      io?.disconnect();
-    };
-  }, [reduceMotion, exitProgress, active]);
+    return () => io.disconnect();
+  }, [reduceMotion]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -99,8 +135,11 @@ export default function HeroAuthority() {
       const header = parseFloat(
         getComputedStyle(document.documentElement).getPropertyValue('--md-header-h') || '72',
       );
-      const pinH = window.innerHeight - header;
-      const track = Math.max(section.offsetHeight - pinH, 1);
+      // The card slide is mapped over a fixed scroll span (EXIT_SCROLL_VH),
+      // independent of the (shorter) pinned track. This lets the card keep
+      // sliding off to the left while the hero has already unpinned and the
+      // Partners section is scrolling up — so the two motions overlap.
+      const track = Math.max((EXIT_SCROLL_VH / 100) * window.innerHeight, 1);
       // The pin sticks at `top: header`, so exit only begins once the section's
       // top reaches that line. For the first section (offsetTop ≈ 0) that point
       // is already at scrollY 0 — clamp to 0 so the card sits at rest (exit = 0)
@@ -120,10 +159,6 @@ export default function HeroAuthority() {
     };
   }, [reduceMotion]);
 
-  const onSelect = useCallback((index: number) => {
-    setActive(index);
-  }, []);
-
   const step = HERO_SLIDES[active];
 
   return (
@@ -140,7 +175,7 @@ export default function HeroAuthority() {
       }}
     >
       <div className="hero-figma-pin">
-        <HeroFigmaMedia activeIndex={active} reduceMotion={reduceMotion} />
+        <HeroFigmaMedia controllerRef={controllerRef} reduceMotion={reduceMotion} />
 
         {'showWaves' in step && step.showWaves && exitProgress < 0.65 ? (
           <div className="hero-figma-waves" aria-hidden>
@@ -162,50 +197,33 @@ export default function HeroAuthority() {
                 </div>
 
                 <h1 id="authority-title" className="hero-figma-title">
-                  <span className="hero-figma-tagline">
-                    {HERO.tagline.replace(' YOU', '')}{' '}
-                    <span className="hero-figma-kw hero-figma-kw--gold">YOU</span>
-                  </span>
-                  <span className="hero-figma-headline">{HERO.headline}</span>
+                  <span className="hero-figma-tagline">{HERO.headlineLead}</span>
+                  <Typewriter
+                    phrases={[...HERO.headlineTyped]}
+                    className="hero-figma-typed"
+                  />
                 </h1>
 
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={step.id}
-                    className="hero-figma-lead"
-                    initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
-                    transition={{ duration: 0.4, ease: EASE }}
-                  >
-                    {step.cap}
-                  </motion.p>
-                </AnimatePresence>
+                <p className="hero-figma-lead">{HERO.lead}</p>
 
-                <div className="hero-figma-supply" aria-label="Supply chain journey">
-                  {HERO.supplyChain.map((node, i) => (
-                    <span key={node} className="hero-figma-supply-item">
-                      {i > 0 && <span className="hero-figma-supply-arrow" aria-hidden>→</span>}
-                      <span className={`hero-figma-supply-node${i === active ? ' is-active' : ''}`}>
-                        {node}
-                      </span>
-                    </span>
+                <div className="hero-figma-stats" aria-label="MD Dental at a glance">
+                  {HERO.stats.map((s) => (
+                    <div key={s.label} className="hero-figma-statcard">
+                      <strong>{s.value}</strong>
+                      <span>{s.label}</span>
+                    </div>
                   ))}
                 </div>
 
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`stat-${step.id}`}
-                    className="hero-figma-stat"
-                    initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
-                    transition={{ duration: 0.35, ease: EASE }}
-                  >
-                    <strong>{step.stat}</strong>
-                    <span>{step.statLabel}</span>
-                  </motion.div>
-                </AnimatePresence>
+                <div className="hero-figma-trust">
+                  <span className="hero-figma-trust-badge" aria-hidden>
+                    {HERO.trust.count}
+                  </span>
+                  <span className="hero-figma-trust-text">
+                    <strong>Trusted by {HERO.trust.count} clinics</strong>
+                    <span>{HERO.trust.text}</span>
+                  </span>
+                </div>
 
                 <div className="journey-hero-cta hero-figma-cta">
                   <Link href={HERO.ctaPrimary.href} className="md-btn md-btn-primary">
@@ -216,37 +234,27 @@ export default function HeroAuthority() {
                   </Link>
                 </div>
               </div>
-
-              <div className="hero-figma-nav" role="tablist" aria-label="Hero story beats">
-                <div className="hero-figma-nav-line" aria-hidden>
-                  <motion.div
-                    className="hero-figma-nav-fill"
-                    animate={{
-                      width: `${N <= 1 ? 100 : ((active + slideProgress) / (N - 1)) * 100}%`,
-                    }}
-                    transition={{ duration: 0.12, ease: 'linear' }}
-                  />
-                </div>
-                {HERO_SLIDES.map((s, i) => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={i === active}
-                    className={`hero-figma-node${i === active ? ' on' : ''}${i < active ? ' done' : ''}`}
-                    onClick={() => onSelect(i)}
-                  >
-                    <span className="hero-figma-node-dot">{i < active ? '✓' : s.no}</span>
-                    <span className="hero-figma-node-label">{s.label}</span>
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
 
           <div className="hero-figma-card-ribbon" aria-hidden />
           <div className="hero-figma-card-fade" aria-hidden />
         </motion.div>
+
+        <div className="hero-specialty-ribbon" aria-label="Dental specialties we serve">
+          <div className="hero-specialty-ribbon-accent" aria-hidden />
+          <div className="hero-specialty-ribbon-glow" aria-hidden />
+          <div className="hero-specialty-track-wrap">
+            <div className={`hero-specialty-track${reduceMotion ? ' is-static' : ''}`}>
+              {[...SPECIALTIES, ...SPECIALTIES].map((s, i) => (
+                <span key={`${s}-${i}`} className="hero-specialty-chip">
+                  <span className="hero-specialty-chip-dot" aria-hidden />
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

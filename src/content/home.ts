@@ -1,23 +1,24 @@
 export const JOURNEY_STEPS = [
-  { id: 'authority', label: 'Authority', short: '01' },
-  { id: 'partners', label: 'Partners', short: '02' },
-  { id: 'reach', label: 'Reach', short: '03' },
-  { id: 'promise', label: 'Promise', short: '04' },
-  { id: 'proof', label: 'Proof', short: '05' },
-  { id: 'catalog', label: 'Products', short: '06' },
-  { id: 'advantage', label: 'Advantage', short: '07' },
-  { id: 'action', label: 'Action', short: '08' },
+  { id: 'authority', label: 'Hero', short: '01' },
+  { id: 'story', label: 'Our Story', short: '02' },
+  { id: 'vision', label: 'Vision', short: '03' },
+  { id: 'partners', label: 'Partners', short: '04' },
+  { id: 'reach', label: 'Reach', short: '05' },
+  { id: 'products', label: 'Products', short: '06' },
+  { id: 'promise', label: 'Promise', short: '07' },
+  { id: 'faq', label: 'FAQ', short: '08' },
+  { id: 'contact', label: 'Contact', short: '09' },
 ] as const;
 
 export const MANUFACTURERS = [
   { name: 'Aditek', slug: 'aditek', country: 'Brazil' },
-  { name: 'BMS', slug: 'bms', country: 'Germany' },
+  { name: 'BMS', slug: 'bms', country: 'Italy' },
   { name: 'Heydent', slug: 'heydent', country: 'Germany' },
   { name: 'SIN', slug: 'sin', country: 'Brazil' },
   { name: 'Centrix', slug: 'centrix', country: 'USA' },
-  { name: 'PROFA', slug: 'profa', country: 'Germany' },
+  { name: 'PROFA', slug: 'profa', country: 'China' },
   { name: 'TopGlove', slug: 'topglove', country: 'Malaysia' },
-  { name: 'WBT', slug: 'wbt', country: 'Germany' },
+  { name: 'WBT', slug: 'wbt', country: 'South Korea' },
 ] as const;
 
 export const METRICS = [
@@ -34,34 +35,28 @@ export const VALUE_PROPS = [
   { title: 'Transparent Specs', desc: 'Published technical specifications — no hidden costs or grey-market risk.' },
 ] as const;
 
-export const ARTICLES_PREVIEW = [
-  { slug: 'ce-certified-composites', title: 'Choosing CE-Certified Composites in Daily Practice', tag: 'Restorative', date: 'Mar 28, 2026' },
-  { slug: 'orthodontic-multi-clinic', title: 'Orthodontic Workflow Tips for Multi-Location Clinics', tag: 'Orthodontics', date: 'Mar 22, 2026' },
-  { slug: 'infection-control-standards', title: 'Infection Control Standards Every Clinic Should Meet', tag: 'Preventive', date: 'Mar 15, 2026' },
-] as const;
+/** @deprecated import from `@/content/articles` */
+export { ARTICLES_PREVIEW } from '@/content/articles';
 
-export const EVENTS_PREVIEW = [
-  { id: 'clinical-day-cairo', title: 'MD Dental Clinical Day — Cairo', type: 'Workshop', date: 'Apr 12, 2026', location: 'Cairo, Egypt' },
-  { id: 'digital-webinar-series', title: 'Digital Dentistry Webinar Series', type: 'Webinar', date: 'Apr 28, 2026', location: 'Online' },
-  { id: 'alex-partner-showcase', title: 'Alexandria Partner Showcase', type: 'Conference', date: 'May 10, 2026', location: 'Alexandria, Egypt' },
-] as const;
+/** @deprecated import from `@/content/events` */
+export { EVENTS_PREVIEW } from '@/content/events';
 
-export const FEATURED_PRODUCTS = [
-  { id: 'aditek-bracket-system', name: 'Aditek Bracket System', brand: 'Aditek', specialty: 'Orthodontics' },
-  { id: 'bms-composite-kit', name: 'BMS Composite Kit', brand: 'BMS', specialty: 'Restorative' },
-  { id: 'heydent-zirconia-disc', name: 'Heydent Zirconia Disc', brand: 'Heydent', specialty: 'Restorative' },
-  { id: 'sin-endo-file-set', name: 'SIN Endo File Set', brand: 'SIN', specialty: 'Endodontics' },
-  { id: 'centrix-impression', name: 'Centrix Impression Material', brand: 'Centrix', specialty: 'Impressions' },
-  { id: 'profa-sterilization-pouch', name: 'PROFA Sterilization Pouch', brand: 'PROFA', specialty: 'Infection Control' },
-] as const;
+/** @deprecated import from `@/content/products` — kept for backward compatibility */
+export { FEATURED_PRODUCTS } from '@/content/products';
 
 export const HERO = {
   eyebrow: 'MD Dental · Exclusive Distributor',
-  tagline: 'Strategically Growing for YOU',
-  headline: 'Global brands. Egyptian reach. Trusted in your clinic.',
-  supplyChain: ['Global brands', 'Egypt hub', 'Your clinic'] as const,
-  subheadline:
-    'Authentic, CE-certified products from eight exclusive global partners — delivered nationwide with scientific support you can rely on.',
+  headlineLead: 'The Dental Supply',
+  headlineTyped: ['Knowledge Platform', 'Distribution Network', 'Clinical Partner'],
+  lead:
+    'From premium instruments to clinical guides, we equip dental professionals with everything they need to deliver exceptional patient care.',
+  stats: [
+    { value: '20', label: 'Governorates' },
+    { value: '8', label: 'Global Partners' },
+    { value: '2019', label: 'Est.' },
+    { value: '7', label: 'Specialties' },
+  ] as const,
+  trust: { count: '2,500+', text: 'clinics across 15 strategic markets' },
   ctaPrimary: { label: 'Explore Products', href: '/products' },
   ctaSecondary: { label: 'Why MD Dental', href: '/why-md-dental' },
 };

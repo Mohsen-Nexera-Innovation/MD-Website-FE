@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FLAG_ART } from '@/content/flagArt';
 import type { PartnerCountry } from '@/content/partnerStops';
+import PartnerCardGlobe from '@/components/journey/PartnerCardGlobe';
 
 type PartnerGalleryProps = {
   stops: readonly PartnerCountry[];
@@ -31,6 +32,10 @@ export default function PartnerGallery({
       onFocusCapture={() => onInteractChange?.(true)}
       onBlurCapture={() => onInteractChange?.(false)}
     >
+      {/* Frosted card mirroring the hero card — holds the Earth + country gallery
+          and slides in from the right (driven by --partner-enter) as the hero
+          card slides off to the left. */}
+      <div className="partner-reveal-card">
       <div className="partner-gallery-stage">
         <button
           type="button"
@@ -42,8 +47,16 @@ export default function PartnerGallery({
         </button>
 
         <div className="partner-gallery-main" aria-live="polite">
+          {/* Free-floating Earth — pulled out of the card so it sits directly on
+              the section's sky-blue background, larger and anchored high so its
+              bottom clears the country buttons below. Persistent (NOT keyed) so
+              the canvas survives country switches and the route arc animates. */}
+          <div className="partner-gallery-earth" aria-hidden>
+            <PartnerCardGlobe activeIndex={active} />
+          </div>
+
           <div className="partner-gallery-card">
-            {/* key remounts the content so the CSS fade replays on each change */}
+            {/* Text column — keyed so the CSS fade replays on each change. */}
             <div key={country.id} className="partner-gallery-card-inner">
               <div className="partner-gallery-card-top">
                 <span className="partner-gallery-flag" aria-hidden>
@@ -111,6 +124,7 @@ export default function PartnerGallery({
             </button>
           );
         })}
+      </div>
       </div>
     </div>
   );

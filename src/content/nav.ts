@@ -1,27 +1,35 @@
+/** Primary navigation — aligned to the Figma reference structure. */
 export const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Partners', href: '/partners' },
+  { label: 'About MD', href: '/about' },
   { label: 'Products', href: '/products' },
-  { label: 'Articles', href: '/articles' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'MD Community', href: '/articles' },
+  { label: 'Partners', href: '/partners' },
   { label: 'Events', href: '/events' },
+] as const;
+
+export const SOCIAL_LINKS = [
+  { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
+  { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
 ] as const;
 
 export const FOOTER_GROUPS = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
+      { label: 'About MD', href: '/about' },
+      { label: 'Careers', href: '/careers' },
       { label: 'Why MD Dental', href: '/why-md-dental' },
       { label: 'Coverage Map', href: '/coverage' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'MD Community',
     links: [
-      { label: 'Products', href: '/products' },
       { label: 'Articles', href: '/articles' },
       { label: 'Events', href: '/events' },
+      { label: 'Products', href: '/products' },
     ],
   },
   {

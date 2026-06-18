@@ -1,15 +1,22 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { JOURNEY_STEPS } from '@/content/home';
 
-/** Sections whose background is dark — spine flips to light neutrals over these. */
-const DARK_SECTIONS = new Set<string>(['partners', 'action']);
+/** Sections with dark backgrounds — spine flips to light neutrals over these. */
+const DARK_SECTIONS = new Set<string>(['authority', 'contact']);
 
-/** Left vertical story-spine — scroll fill, active dot, hover label, tone-aware color. */
+/** Left vertical story-spine — scroll fill, active dot, click-to-scroll, tone-aware color. */
 export default function Spine() {
   const fillRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
+
+  const scrollToStep = useCallback((id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,13 +29,15 @@ export default function Spine() {
       let toneDark = false;
 
       navRef.current?.querySelectorAll<HTMLButtonElement>('button').forEach((btn) => {
-        const tgt = document.querySelector(btn.dataset.target ?? '');
+        const id = btn.dataset.target?.replace('#', '') ?? '';
+        const tgt = id ? document.getElementById(id) : null;
         if (!tgt) return;
         const r = tgt.getBoundingClientRect();
-        btn.classList.toggle('on', r.top < vh * 0.5 && r.bottom > vh * 0.4);
+        const isOn = r.top < vh * 0.5 && r.bottom > vh * 0.4;
+        btn.classList.toggle('on', isOn);
+        btn.setAttribute('aria-current', isOn ? 'step' : 'false');
       });
 
-      // Tone = background of whichever section sits behind the spine (viewport center).
       for (const step of JOURNEY_STEPS) {
         const el = document.getElementById(step.id);
         if (!el) continue;
@@ -62,6 +71,8 @@ export default function Spine() {
           data-target={`#${step.id}`}
           data-label={step.label}
           aria-label={step.label}
+          aria-current="false"
+          onClick={() => scrollToStep(step.id)}
         />
       ))}
     </nav>

@@ -28,6 +28,12 @@ type HeroGlobeJourneyProps = {
   showHud?: boolean;
   /** Multiplier on the globe scale (1 = default framing). */
   zoom?: number;
+  /**
+   * `backdrop` (default) paints the dark space atmosphere behind the Earth.
+   * `card` drops the atmosphere + stars so the Earth floats on a transparent
+   * canvas that blends with whatever sits behind it (e.g. the gallery card).
+   */
+  variant?: 'backdrop' | 'card';
 };
 
 function hasWebGL() {
@@ -50,7 +56,9 @@ export default function HeroGlobeJourney({
   controlledIndex,
   showHud = true,
   zoom = 1,
+  variant = 'backdrop',
 }: HeroGlobeJourneyProps) {
+  const isCard = variant === 'card';
   const controlled = controlledIndex != null;
   const [stopIndex, setStopIndex] = useState(0);
   const [prevStopIndex, setPrevStopIndex] = useState(0);
@@ -132,6 +140,15 @@ export default function HeroGlobeJourney({
   }, [stopIndex, prevStopIndex, reduced, paused, useGlobe, controlled, stops]);
 
   if (reduced) {
+    // On the card the dark atmosphere would clash with the light backdrop, so
+    // show a simple transparent static globe instead.
+    if (isCard) {
+      return (
+        <div className="hero-globe-bg hero-globe-bg--card hero-globe-bg--fallback" aria-hidden>
+          <div className="partner-globe-static" />
+        </div>
+      );
+    }
     return (
       <div className="hero-globe-bg hero-globe-bg--poster hero-globe-bg--fallback" aria-hidden>
         <HeroAtmosphereFallback />
@@ -140,8 +157,8 @@ export default function HeroGlobeJourney({
   }
 
   return (
-    <div className="hero-globe-bg">
-      <HeroAtmosphereFallback />
+    <div className={`hero-globe-bg${isCard ? ' hero-globe-bg--card' : ''}`}>
+      {isCard ? null : <HeroAtmosphereFallback />}
 
       {useGlobe ? (
         <GlobeErrorBoundary
@@ -155,6 +172,7 @@ export default function HeroGlobeJourney({
               paused={paused}
               stops={stops}
               zoom={zoom}
+              transparent={isCard}
             />
           </div>
         </GlobeErrorBoundary>

@@ -45,6 +45,8 @@ type HeroGlobeCanvasProps = {
   portalEl?: HTMLDivElement | null;
   stops?: readonly GlobeStop[];
   zoom?: number;
+  /** Drop the star field so the Earth floats on a transparent canvas. */
+  transparent?: boolean;
 };
 
 type GlobeSceneProps = {
@@ -679,7 +681,10 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
       city: THREE.MathUtils.damp(blendRef.current.city, target.city, 1.15, delta),
     };
     const cam = cameraFromEgyptBlend(blendRef.current);
-    outer.scale.setScalar(cam.scale * zoom);
+    // Gentle zoom-in that peaks mid-route so the travelling arc reads clearly,
+    // settling back to the base framing once arrived.
+    const travelBoost = 1 + Math.sin(Math.min(1, travelRef.current) * Math.PI) * 0.05;
+    outer.scale.setScalar(cam.scale * zoom * travelBoost);
 
     const nextSegments = globeSegmentsForZoom(blendRef.current.city);
     if (nextSegments !== earthSegmentsRef.current) {
@@ -736,16 +741,24 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
   );
 }
 
-function SceneLighting({ egyptFocusRef }: { egyptFocusRef: React.RefObject<boolean> }) {
+function SceneLighting({
+  egyptFocusRef,
+  bright,
+}: {
+  egyptFocusRef: React.RefObject<boolean>;
+  bright?: boolean;
+}) {
   const ambientRef = useRef<THREE.AmbientLight>(null);
   const fillRef = useRef<THREE.PointLight>(null);
 
   useFrame((_, delta) => {
     const focus = egyptFocusRef.current;
+    const ambientBase = bright ? 0.92 : 0.4;
+    const fillBase = bright ? 0.95 : 0.55;
     if (ambientRef.current) {
       ambientRef.current.intensity = THREE.MathUtils.damp(
         ambientRef.current.intensity,
-        focus ? 0.26 : 0.4,
+        focus ? ambientBase * 0.7 : ambientBase,
         4,
         delta,
       );
@@ -753,7 +766,7 @@ function SceneLighting({ egyptFocusRef }: { egyptFocusRef: React.RefObject<boole
     if (fillRef.current) {
       fillRef.current.intensity = THREE.MathUtils.damp(
         fillRef.current.intensity,
-        focus ? 0.18 : 0.55,
+        focus ? fillBase * 0.5 : fillBase,
         4,
         delta,
       );
@@ -762,18 +775,29 @@ function SceneLighting({ egyptFocusRef }: { egyptFocusRef: React.RefObject<boole
 
   return (
     <>
-      <ambientLight ref={ambientRef} intensity={0.4} color="#90b0f0" />
+      <ambientLight ref={ambientRef} intensity={bright ? 0.92 : 0.4} color="#bcd2f5" />
       <SunLight />
       <pointLight ref={fillRef} position={[-3, 2, 4]} intensity={0.55} color="#3050a0" />
+      {/* Steady viewer-side fill so the country facing the camera is always lit
+          (no dark night-side hemisphere on the in-card globe). */}
+      {bright ? (
+        <directionalLight position={[0, 1.2, 6]} intensity={1.5} color="#fff6ea" />
+      ) : null}
     </>
   );
 }
 
-function Scene({ egyptFocusRef, ...props }: GlobeSceneProps) {
+function Scene({
+  egyptFocusRef,
+  transparent,
+  ...props
+}: GlobeSceneProps & { transparent: boolean }) {
   return (
     <>
-      <SceneLighting egyptFocusRef={egyptFocusRef} />
-      <Stars radius={90} depth={50} count={600} factor={3.2} saturation={0.12} fade speed={0.25} />
+      <SceneLighting egyptFocusRef={egyptFocusRef} bright={transparent} />
+      {!transparent ? (
+        <Stars radius={90} depth={50} count={600} factor={3.2} saturation={0.12} fade speed={0.25} />
+      ) : null}
       <GlobeRig {...props} egyptFocusRef={egyptFocusRef} />
     </>
   );
@@ -786,6 +810,7 @@ export default function HeroGlobeCanvas({
   portalEl = null,
   stops = GLOBE_STOPS,
   zoom = 1,
+  transparent = false,
 }: HeroGlobeCanvasProps) {
   const egyptFocusRef = useRef(false);
 
@@ -803,7 +828,7 @@ export default function HeroGlobeCanvas({
       onCreated={({ gl }) => {
         gl.outputColorSpace = THREE.SRGBColorSpace;
         gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.02;
+        gl.toneMappingExposure = 1.12;
         gl.domElement.addEventListener('webglcontextlost', (e) => e.preventDefault());
       }}
       style={{ width: '100%', height: '100%', display: 'block' }}
@@ -815,6 +840,7 @@ export default function HeroGlobeCanvas({
         portalEl={portalEl}
         stops={stops}
         zoom={zoom}
+        transparent={transparent}
         egyptFocusRef={egyptFocusRef}
       />
     </Canvas>

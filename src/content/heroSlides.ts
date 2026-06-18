@@ -1,6 +1,29 @@
 /** Legacy Figma hero — three full-bleed slides (Global → National → Trusted). */
 export const HERO_SLIDE_MS = 5500;
 
+/** Full-bleed hero background video — YouTube source, played via the IFrame API. */
+export const HERO_VIDEO_YT_ID = 'X9J2ea8iNnM';
+
+/**
+ * Playback starts (and loops back to) this offset, in seconds, skipping the
+ * video's intro so the hero opens on the meaningful footage.
+ */
+export const HERO_VIDEO_START_SEC = 8;
+
+/**
+ * Seconds trimmed from the END of the clip — playback loops back to the start
+ * offset this many seconds before the real end (e.g. to skip an outro).
+ */
+export const HERO_VIDEO_END_TRIM_SEC = 10;
+
+/**
+ * Where each stepper beat begins, as a fraction (0–1) of the PLAYABLE window
+ * (from HERO_VIDEO_START_SEC to duration − HERO_VIDEO_END_TRIM_SEC). The stepper
+ * is driven by the video's playback time, so these markers keep the Global /
+ * National / Trusted nodes locked to the footage. Defaults to equal thirds.
+ */
+export const HERO_VIDEO_SEGMENTS = [0, 1 / 3, 2 / 3] as const;
+
 export const HERO_SLIDES = [
   {
     id: 'global',

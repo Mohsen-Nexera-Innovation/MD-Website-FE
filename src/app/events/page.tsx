@@ -1,24 +1,26 @@
-import Link from 'next/link';
-import InnerPage from '@/components/InnerPage';
-import { EVENTS_PREVIEW } from '@/content/home';
+import type { Metadata } from 'next';
+import PageHero from '@/components/layout/PageHero';
+import EventsCatalog from '@/components/catalog/EventsCatalog';
+import { EVENTS_INTRO } from '@/content/events';
+
+export const metadata: Metadata = {
+  title: 'Events | MD Dental',
+  description:
+    'MD Dental workshops, webinars, and conferences across Egypt — clinical education and partner showcases.',
+};
 
 export default function EventsPage() {
   return (
-    <InnerPage
-      eyebrow="Community"
-      title="Events"
-      lead="Workshops, webinars, and conferences — proof that MD Dental is an active market leader."
-      journeyFrom="proof"
-    >
-      <div className="g3">
-        {EVENTS_PREVIEW.map((e) => (
-          <Link key={e.id} href={`/events/${e.id}`} className="content-card content-card--link">
-            <span className="tag">{e.type}</span>
-            <h3>{e.title}</h3>
-            <div className="meta">{e.date} · {e.location}</div>
-          </Link>
-        ))}
+    <div className="inner-page inner-page--reach inner-page--catalog">
+      <div className="wrap">
+        <PageHero
+          breadcrumbLabel="Events"
+          eyebrow={EVENTS_INTRO.eyebrow}
+          title={EVENTS_INTRO.title}
+          lead={EVENTS_INTRO.lead}
+        />
+        <EventsCatalog />
       </div>
-    </InnerPage>
+    </div>
   );
 }
