@@ -14,12 +14,13 @@ export const metadata: Metadata = {
 export default function PartnersPage() {
   return (
     <div className="inner-page inner-page--partners inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Partners"
           eyebrow={PARTNERS_INTRO.eyebrow}
           title={PARTNERS_INTRO.title}
           lead={PARTNERS_INTRO.lead}
+          journeyFrom="partners"
         />
         <PartnersHub />
         <section className="catalog-cta-band partners-cta-band reveal">

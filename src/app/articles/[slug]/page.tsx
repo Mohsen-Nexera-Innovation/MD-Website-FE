@@ -24,7 +24,7 @@ export default async function ArticleDetailPage({ params }: Props) {
 
   return (
     <div className="inner-page inner-page--faq inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <ArticleDetailView article={article} canonicalUrl={canonicalUrl} />
       </div>
     </div>

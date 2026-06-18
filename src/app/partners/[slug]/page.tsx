@@ -22,7 +22,7 @@ export default async function PartnerPage({ params }: Props) {
 
   return (
     <div className="inner-page inner-page--partners inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PartnerDetailView partner={partner} />
       </div>
     </div>

@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <div className="inner-page inner-page--reach inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Events"
           eyebrow={EVENTS_INTRO.eyebrow}
           title={EVENTS_INTRO.title}
           lead={EVENTS_INTRO.lead}
+          journeyFrom="promise"
         />
         <EventsCatalog />
       </div>

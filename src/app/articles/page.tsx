@@ -13,12 +13,13 @@ export const metadata: Metadata = {
 export default function ArticlesPage() {
   return (
     <div className="inner-page inner-page--faq inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="MD Community"
           eyebrow={ARTICLES_INTRO.eyebrow}
           title={ARTICLES_INTRO.title}
           lead={ARTICLES_INTRO.lead}
+          journeyFrom="promise"
         />
 
         <Suspense fallback={<p className="catalog-loading">Loading articles…</p>}>

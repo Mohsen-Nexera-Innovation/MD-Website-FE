@@ -22,7 +22,7 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <div className="inner-page inner-page--reach inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <EventDetailView event={event} />
       </div>
     </div>

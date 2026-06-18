@@ -22,7 +22,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <div className="inner-page inner-page--products inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <ProductDetailView product={product} />
       </div>
     </div>

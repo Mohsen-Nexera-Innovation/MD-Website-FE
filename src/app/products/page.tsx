@@ -15,12 +15,13 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <div className="inner-page inner-page--products inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Products"
           eyebrow={PRODUCT_CATALOG_INTRO.eyebrow}
           title={PRODUCT_CATALOG_INTRO.title}
           lead={PRODUCT_CATALOG_INTRO.lead}
+          journeyFrom="products"
         />
 
         <Suspense fallback={<p className="catalog-loading">Loading catalog…</p>}>

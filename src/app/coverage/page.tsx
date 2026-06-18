@@ -13,20 +13,20 @@ export const metadata: Metadata = {
 export default function CoveragePage() {
   return (
     <div className="inner-page inner-page--reach inner-page--catalog inner-page--coverage">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Coverage Map"
           eyebrow="National Reach"
           title="Egypt coverage map"
-          lead="Click a city for your area manager or Bosta delivery details."
+          lead="27 governorates — field reps in key cities and Bosta delivery nationwide."
           journeyFrom="reach"
         />
-      </div>
-      <CoverageMapSection />
-      <div className="wrap">
-        <section className="catalog-cta-band coverage-page-cta reveal">
+
+        <CoverageMapSection />
+
+        <section className="catalog-cta-band coverage-page-cta">
           <h2>Explore products in your zone</h2>
-          <p>Browse authentic specs from every partner brand we distribute.</p>
+          <p>Published specs and IFU downloads for every partner brand.</p>
           <Link href="/products" className="md-btn md-btn-primary">
             View products <Arrow />
           </Link>

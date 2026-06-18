@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="inner-page inner-page--vision inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="About MD"
           eyebrow={ABOUT_INTRO.eyebrow}
           title={ABOUT_INTRO.title}
           lead={ABOUT_INTRO.lead}
+          journeyFrom="story"
         />
         <AboutView />
       </div>

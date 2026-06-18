@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function WhyMdDentalPage() {
   return (
     <div className="inner-page inner-page--promise inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Why MD Dental"
           eyebrow={WHY_MD_INTRO.eyebrow}

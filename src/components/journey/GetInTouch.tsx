@@ -1,4 +1,5 @@
 import { CONTACT_DETAILS, CONTACT_INTRO } from '@/content/contact';
+import ContactForm from '@/components/forms/ContactForm';
 import SecHead from '@/components/SecHead';
 
 export default function GetInTouch() {
@@ -22,23 +23,7 @@ export default function GetInTouch() {
               </article>
             ))}
           </div>
-          <form className="contact-form" action="#" method="post">
-            <label className="contact-field">
-              <span>Full Name</span>
-              <input type="text" name="name" required placeholder="Dr. Ahmed Hassan" />
-            </label>
-            <label className="contact-field">
-              <span>Email Address</span>
-              <input type="email" name="email" required placeholder="clinic@example.com" />
-            </label>
-            <label className="contact-field">
-              <span>Your Message</span>
-              <textarea name="message" rows={5} required placeholder="How can we help your practice?" />
-            </label>
-            <button type="submit" className="md-btn md-btn-primary contact-submit">
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </section>

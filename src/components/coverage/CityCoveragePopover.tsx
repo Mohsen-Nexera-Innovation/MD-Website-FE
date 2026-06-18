@@ -1,15 +1,15 @@
 'use client';
 
 import {
-  COVERAGE_CITIES,
   HUB_CONTACT,
-  ZONE_LABELS,
+  ZONE_LABELS_SHORT,
   type CoverageCity,
 } from '@/content/coverageCities';
 
 type CityCoveragePopoverProps = {
   city: CoverageCity;
   onClose: () => void;
+  variant?: 'overlay' | 'panel';
 };
 
 function formatPhoneDisplay(phone: string) {
@@ -25,13 +25,17 @@ function managerInitials(name: string) {
     .toUpperCase();
 }
 
-export default function CityCoveragePopover({ city, onClose }: CityCoveragePopoverProps) {
+export default function CityCoveragePopover({
+  city,
+  onClose,
+  variant = 'overlay',
+}: CityCoveragePopoverProps) {
   const hasRep = city.zone === 'REP_TERRITORY' && city.manager;
-  const zoneLabel = ZONE_LABELS[city.zone];
+  const zoneLabel = ZONE_LABELS_SHORT[city.zone];
 
   return (
     <div
-      className="coverage-popover coverage-popover--fancy"
+      className={`coverage-popover coverage-popover--fancy coverage-popover--${variant}`}
       role="dialog"
       aria-labelledby={`coverage-popover-${city.id}`}
     >
@@ -58,9 +62,9 @@ export default function CityCoveragePopover({ city, onClose }: CityCoveragePopov
             {city.name}
           </h4>
           {hasRep ? (
-            <p className="coverage-popover-role">Area manager · {city.manager!.name}</p>
+            <p className="coverage-popover-role">{city.manager!.name} · Area manager</p>
           ) : (
-            <p className="coverage-popover-role">Nationwide Bosta delivery</p>
+            <p className="coverage-popover-role">Delivered via Bosta nationwide</p>
           )}
         </div>
       </div>
@@ -71,27 +75,29 @@ export default function CityCoveragePopover({ city, onClose }: CityCoveragePopov
             href={`tel:${city.manager!.phone.replace(/\s/g, '')}`}
             className="coverage-popover-btn coverage-popover-btn--call"
           >
-            Call {formatPhoneDisplay(city.manager!.phone)}
+            <span className="coverage-popover-btn-label">Call</span>
+            <span className="coverage-popover-btn-value">{formatPhoneDisplay(city.manager!.phone)}</span>
           </a>
           {city.manager!.email ? (
             <a
               href={`mailto:${city.manager!.email}`}
               className="coverage-popover-btn coverage-popover-btn--email"
             >
-              Email manager
+              Email {city.manager!.name.split(' ')[0]}
             </a>
           ) : null}
         </div>
       ) : (
         <div className="coverage-popover-ecom-wrap">
           <p className="coverage-popover-ecom">
-            Order online or contact our Cairo hub for delivery across Egypt.
+            Order online or call our Cairo hub for delivery across Egypt.
           </p>
           <a
             href={`tel:${HUB_CONTACT.phone}`}
             className="coverage-popover-btn coverage-popover-btn--call"
           >
-            {formatPhoneDisplay(HUB_CONTACT.phone)}
+            <span className="coverage-popover-btn-label">Cairo hub</span>
+            <span className="coverage-popover-btn-value">{formatPhoneDisplay(HUB_CONTACT.phone)}</span>
           </a>
         </div>
       )}

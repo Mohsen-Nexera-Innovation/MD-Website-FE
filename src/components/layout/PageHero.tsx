@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { journeyChapterLabel } from '@/content/journeyLabels';
 
 type PageHeroProps = {
   breadcrumbLabel: string;
@@ -15,6 +16,8 @@ export default function PageHero({
   lead,
   journeyFrom,
 }: PageHeroProps) {
+  const chapterLabel = journeyFrom ? journeyChapterLabel(journeyFrom) : null;
+
   return (
     <header className="page-hero reveal">
       <div className="page-hero-ribbon" aria-hidden />
@@ -23,9 +26,11 @@ export default function PageHero({
         <span aria-hidden>/</span>
         <span>{breadcrumbLabel}</span>
       </nav>
-      {journeyFrom ? (
-        <p className="inner-journey-link">
-          ← Continues from homepage: <Link href={`/#${journeyFrom}`}>{journeyFrom}</Link>
+      {journeyFrom && chapterLabel ? (
+        <p className="page-hero-journey">
+          <Link href={`/#${journeyFrom}`}>← {chapterLabel}</Link>
+          <span className="page-hero-journey-sep">·</span>
+          <span>Homepage chapter</span>
         </p>
       ) : null}
       <div className="eyebrow">{eyebrow}</div>

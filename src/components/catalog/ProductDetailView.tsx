@@ -4,6 +4,7 @@ import Arrow from '@/components/journey/Arrow';
 import type { CatalogProduct } from '@/content/products';
 import { getRelatedProducts } from '@/content/products';
 import ProductCard from '@/components/ui/ProductCard';
+import ProductDownload from '@/components/ui/ProductDownload';
 
 type ProductDetailViewProps = {
   product: CatalogProduct;
@@ -105,13 +106,13 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
 
           <section className="product-detail-panel">
             <h2>Downloads</h2>
-            <button type="button" className="md-btn md-btn-ghost md-btn-full product-download-btn">
-              Download IFU (PDF)
-            </button>
-            <button type="button" className="md-btn md-btn-ghost md-btn-full product-download-btn">
-              Download datasheet (PDF)
-            </button>
-            <p className="product-download-hint">Secure download — API integration in Release 1 CMS.</p>
+            <ProductDownload label="Download IFU (PDF)" url={product.ifuUrl} />
+            <ProductDownload label="Download datasheet (PDF)" url={product.datasheetUrl} />
+            <p className="product-download-hint">
+              {product.ifuUrl || product.datasheetUrl
+                ? 'Open in a new tab or save to your device.'
+                : 'Full document library publishes with CMS — register for early access.'}
+            </p>
           </section>
         </aside>
       </div>

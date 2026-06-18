@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <div className="inner-page inner-page--promise inner-page--catalog">
-      <div className="wrap">
+      <div className="wrap catalog-page-shell">
         <PageHero
           breadcrumbLabel="Careers"
           eyebrow={CAREERS_INTRO.eyebrow}
           title={CAREERS_INTRO.title}
           lead={CAREERS_INTRO.lead}
+          journeyFrom="contact"
         />
         <CareersView />
       </div>

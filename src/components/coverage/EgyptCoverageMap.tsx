@@ -1,10 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import CityCoveragePopover from '@/components/coverage/CityCoveragePopover';
+import CoverageCityPanel from '@/components/coverage/CoverageCityPanel';
 import {
   COVERAGE_CITIES,
   COVERAGE_HUB_ID,
+  ZONE_LABELS_SHORT,
   coverageCityById,
 } from '@/content/coverageCities';
 import { labelLayoutFor } from '@/content/coverageMapLayout';
@@ -24,6 +26,8 @@ type EgyptCoverageMapProps = {
   highlightZoneId?: string;
   reduced?: boolean;
   className?: string;
+  /** Panel = side detail card (coverage page). Overlay = compact float on map (homepage). */
+  layout?: 'overlay' | 'panel';
 };
 
 function labelWidth(text: string) {
@@ -46,9 +50,15 @@ export default function EgyptCoverageMap({
   highlightZoneId,
   reduced = false,
   className = '',
+  layout = 'overlay',
 }: EgyptCoverageMapProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = coverageCityById(selectedId);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  const scrollToPanel = useCallback(() => {
+    panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, []);
 
   const highlightSet = useMemo(() => {
     if (!highlightZoneId) return null;
@@ -85,7 +95,15 @@ export default function EgyptCoverageMap({
     close();
   }, [highlightZoneId, close]);
 
-  return (
+  useEffect(() => {
+    if (layout !== 'panel' || !selectedId) return;
+    const mq = window.matchMedia('(max-width: 859px)');
+    if (!mq.matches) return;
+    const timer = window.setTimeout(scrollToPanel, 120);
+    return () => window.clearTimeout(timer);
+  }, [selectedId, layout, scrollToPanel]);
+
+  const mapBlock = (
     <div className={`coverage-map reach-map ${className}`.trim()}>
       <div className="coverage-map-screen reach-map-screen">
         <div className="coverage-map-stage">
@@ -256,9 +274,39 @@ export default function EgyptCoverageMap({
             })}
           </svg>
 
-          {selected && <CityCoveragePopover city={selected} onClose={close} />}
+          {layout === 'overlay' && selected && (
+            <CityCoveragePopover city={selected} onClose={close} variant="overlay" />
+          )}
         </div>
       </div>
     </div>
   );
+
+  if (layout === 'panel') {
+    return (
+      <div className="coverage-map-layout coverage-map-layout--panel">
+        <div className="coverage-map-panel-map">
+          <div className="coverage-page-map-wrap coverage-page-map-wrap--panel">
+            {mapBlock}
+          </div>
+          {selected ? (
+            <div className="coverage-mobile-bar" role="status">
+              <div className="coverage-mobile-bar-text">
+                <strong>{selected.name}</strong>
+                <span>{ZONE_LABELS_SHORT[selected.zone]}</span>
+              </div>
+              <button type="button" className="coverage-mobile-bar-btn" onClick={scrollToPanel}>
+                View details
+              </button>
+            </div>
+          ) : null}
+        </div>
+        <div ref={panelRef} id="coverage-city-panel" className="coverage-city-panel-anchor">
+          <CoverageCityPanel city={selected ?? null} onClose={close} />
+        </div>
+      </div>
+    );
+  }
+
+  return mapBlock;
 }

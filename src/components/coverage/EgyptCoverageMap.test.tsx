@@ -20,7 +20,7 @@ describe('EgyptCoverageMap', () => {
     await user.click(cairo as Element);
 
     expect(within(container).getByRole('dialog')).toBeInTheDocument();
-    expect(within(container).getByText(/Area manager · Ahmed Hassan/i)).toBeInTheDocument();
+    expect(within(container).getByText(/Ahmed Hassan · Area manager/i)).toBeInTheDocument();
     expect(within(container).getByRole('link', { name: /\+20/i })).toHaveAttribute(
       'href',
       expect.stringContaining('tel:'),
@@ -35,8 +35,8 @@ describe('EgyptCoverageMap', () => {
     expect(hurghada).toBeTruthy();
     await user.click(hurghada as Element);
 
-    expect(within(container).getByText(/Nationwide Bosta delivery/i)).toBeInTheDocument();
-    expect(within(container).getByText(/Order online or contact our Cairo hub/i)).toBeInTheDocument();
+    expect(within(container).getByText(/Delivered via Bosta nationwide/i)).toBeInTheDocument();
+    expect(within(container).getByText(/Order online or call our Cairo hub/i)).toBeInTheDocument();
     expect(within(container).queryByText(/Area manager ·/i)).not.toBeInTheDocument();
   });
 

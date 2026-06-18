@@ -5,11 +5,32 @@ import Header from '@/components/Header';
 import HeroLogoDock from '@/components/HeroLogoDock';
 import Footer from '@/components/Footer';
 import MdMotion from '@/components/MdMotion';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'MD Dental — Egypt\'s Exclusive Distributor of Global Dental Brands',
-  description:
-    'MD Dental distributes 8 world-class dental brands across Egypt\'s 27 governorates. Authentic products, nationwide delivery, and expert clinical support.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Egypt's Exclusive Distributor of Global Dental Brands`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    locale: 'en_EG',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Egypt's Exclusive Distributor of Global Dental Brands`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

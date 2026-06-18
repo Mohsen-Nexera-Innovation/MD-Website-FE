@@ -155,6 +155,13 @@ export const ZONE_LABELS: Record<CoverageZoneType, string> = {
   ECOMMERCE_FULL: 'Full coverage',
 };
 
+/** Shorter labels for map popover badges. */
+export const ZONE_LABELS_SHORT: Record<CoverageZoneType, string> = {
+  REP_TERRITORY: 'Field rep territory',
+  ECOMMERCE_ONLY: 'Bosta delivery',
+  ECOMMERCE_FULL: 'Full coverage',
+};
+
 export const HUB_CONTACT: CoverageManager = {
   name: 'Cairo operations hub',
   phone: '+201012345678',

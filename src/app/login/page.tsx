@@ -10,12 +10,14 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <AuthLayout
-      eyebrow="Account"
-      title={AUTH_COPY.login.title}
-      lead={AUTH_COPY.login.lead}
-    >
-      <LoginForm />
-    </AuthLayout>
+    <div className="inner-page inner-page--promise inner-page--auth">
+      <AuthLayout
+        eyebrow="Account"
+        title={AUTH_COPY.login.title}
+        lead={AUTH_COPY.login.lead}
+      >
+        <LoginForm />
+      </AuthLayout>
+    </div>
   );
 }
