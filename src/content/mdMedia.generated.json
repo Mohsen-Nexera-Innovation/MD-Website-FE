@@ -1,0 +1,1897 @@
+{
+  "generatedAt": "2026-06-22T21:09:44.961Z",
+  "logos": {
+    "aditek": "/md/brands/aditek.png",
+    "bms": "/md/brands/bms.png",
+    "profa": "/md/brands/profa.png",
+    "heydent": "/md/brands/heydent.png",
+    "centrix": "/md/brands/centrix.png",
+    "sin": "/md/brands/sin.svg",
+    "wbt": "/md/brands/wbt.svg",
+    "topglove": "/md/brands/topglove.svg"
+  },
+  "video": "/md/video/global-trust-dental.mp4",
+  "products": [
+    {
+      "id": "aditek-biocrystal",
+      "name": "BioCrystal",
+      "brandSlug": "aditek",
+      "sourceFile": " BioCrystal.png",
+      "image": "/md/products/aditek/biocrystal.png",
+      "images": [
+        "/md/products/aditek/biocrystal.png"
+      ]
+    },
+    {
+      "id": "aditek-biomax-mbt",
+      "name": "Biomax MBT",
+      "brandSlug": "aditek",
+      "sourceFile": " Biomax MBT.png",
+      "image": "/md/products/aditek/biomax-mbt.png",
+      "images": [
+        "/md/products/aditek/biomax-mbt.png"
+      ]
+    },
+    {
+      "id": "aditek-vector-jorge-rodrigues",
+      "name": "Vector+ Jorge Rodrigues",
+      "brandSlug": "aditek",
+      "sourceFile": " Vector+ Jorge Rodrigues.jpeg",
+      "image": "/md/products/aditek/vector-jorge-rodrigues.jpeg",
+      "images": [
+        "/md/products/aditek/vector-jorge-rodrigues.jpeg"
+      ]
+    },
+    {
+      "id": "aditek-ball-hook",
+      "name": "Ball Hook",
+      "brandSlug": "aditek",
+      "sourceFile": "Ball Hook.JPG",
+      "image": "/md/products/aditek/ball-hook.jpg",
+      "images": [
+        "/md/products/aditek/ball-hook.jpg"
+      ]
+    },
+    {
+      "id": "aditek-biocomfort",
+      "name": "BioComfort",
+      "brandSlug": "aditek",
+      "sourceFile": "BioComfort.JPG",
+      "image": "/md/products/aditek/biocomfort.jpg",
+      "images": [
+        "/md/products/aditek/biocomfort.jpg"
+      ]
+    },
+    {
+      "id": "aditek-biomax-roth",
+      "name": "Biomax Roth",
+      "brandSlug": "aditek",
+      "sourceFile": "Biomax Roth.png",
+      "image": "/md/products/aditek/biomax-roth.png",
+      "images": [
+        "/md/products/aditek/biomax-roth.png"
+      ]
+    },
+    {
+      "id": "aditek-bite-turbo",
+      "name": "Bite turbo",
+      "brandSlug": "aditek",
+      "sourceFile": "Bite turbo.JPG",
+      "image": "/md/products/aditek/bite-turbo.jpg",
+      "images": [
+        "/md/products/aditek/bite-turbo.jpg"
+      ]
+    },
+    {
+      "id": "aditek-closed-coil-6mm",
+      "name": "closed coil 6mm",
+      "brandSlug": "aditek",
+      "sourceFile": "closed coil 6mm.png",
+      "image": "/md/products/aditek/closed-coil-6mm.png",
+      "images": [
+        "/md/products/aditek/closed-coil-6mm.png"
+      ]
+    },
+    {
+      "id": "aditek-closed-coil",
+      "name": "Closed Coil",
+      "brandSlug": "aditek",
+      "sourceFile": "Closed Coil.JPG",
+      "image": "/md/products/aditek/closed-coil.jpg",
+      "images": [
+        "/md/products/aditek/closed-coil.jpg"
+      ]
+    },
+    {
+      "id": "aditek-crimpable-hook",
+      "name": "Crimpable hook",
+      "brandSlug": "aditek",
+      "sourceFile": "Crimpable hook.png",
+      "image": "/md/products/aditek/crimpable-hook.png",
+      "images": [
+        "/md/products/aditek/crimpable-hook.png"
+      ]
+    },
+    {
+      "id": "aditek-easyclear",
+      "name": "EasyClear",
+      "brandSlug": "aditek",
+      "sourceFile": "EasyClear.JPG",
+      "image": "/md/products/aditek/easyclear.jpg",
+      "images": [
+        "/md/products/aditek/easyclear.jpg"
+      ]
+    },
+    {
+      "id": "aditek-easyclip-low-torque",
+      "name": "EasyClip low torque",
+      "brandSlug": "aditek",
+      "sourceFile": "EasyClip low torque.png",
+      "image": "/md/products/aditek/easyclip-low-torque.png",
+      "images": [
+        "/md/products/aditek/easyclip-low-torque.png"
+      ]
+    },
+    {
+      "id": "aditek-easyclip-standard",
+      "name": "EasyClip standard",
+      "brandSlug": "aditek",
+      "sourceFile": "EasyClip standard.png",
+      "image": "/md/products/aditek/easyclip-standard.png",
+      "images": [
+        "/md/products/aditek/easyclip-standard.png"
+      ]
+    },
+    {
+      "id": "aditek-easyclip-tool",
+      "name": "easyclip tool",
+      "brandSlug": "aditek",
+      "sourceFile": "easyclip tool (1).png",
+      "image": "/md/products/aditek/easyclip-tool.png",
+      "images": [
+        "/md/products/aditek/easyclip-tool.png"
+      ]
+    },
+    {
+      "id": "aditek-easyclip",
+      "name": "EasyClip+",
+      "brandSlug": "aditek",
+      "sourceFile": "EasyClip+.JPG",
+      "image": "/md/products/aditek/easyclip.jpg",
+      "images": [
+        "/md/products/aditek/easyclip.jpg"
+      ]
+    },
+    {
+      "id": "aditek-fix",
+      "name": "FIX",
+      "brandSlug": "aditek",
+      "sourceFile": "FIX.JPG",
+      "image": "/md/products/aditek/fix.jpg",
+      "images": [
+        "/md/products/aditek/fix.jpg"
+      ]
+    },
+    {
+      "id": "aditek-ligature-wire-50gm",
+      "name": "Ligature Wire 50gm",
+      "brandSlug": "aditek",
+      "sourceFile": "Ligature Wire 50gm.JPG",
+      "image": "/md/products/aditek/ligature-wire-50gm.jpg",
+      "images": [
+        "/md/products/aditek/ligature-wire-50gm.jpg"
+      ]
+    },
+    {
+      "id": "aditek-light-bonito",
+      "name": "Light bonito",
+      "brandSlug": "aditek",
+      "sourceFile": "Light bonito.png",
+      "image": "/md/products/aditek/light-bonito.png",
+      "images": [
+        "/md/products/aditek/light-bonito.png"
+      ]
+    },
+    {
+      "id": "aditek-memoflex-copolyester",
+      "name": "MEMOFLEX Copolyester",
+      "brandSlug": "aditek",
+      "sourceFile": "MEMOFLEX Copolyester.jpeg",
+      "image": "/md/products/aditek/memoflex-copolyester.jpeg",
+      "images": [
+        "/md/products/aditek/memoflex-copolyester.jpeg"
+      ]
+    },
+    {
+      "id": "aditek-memoflex-petg",
+      "name": "MEMOFLEX PETG",
+      "brandSlug": "aditek",
+      "sourceFile": "MEMOFLEX PETG .JPG",
+      "image": "/md/products/aditek/memoflex-petg.jpg",
+      "images": [
+        "/md/products/aditek/memoflex-petg.jpg"
+      ]
+    },
+    {
+      "id": "aditek-molar-band",
+      "name": "Molar Band",
+      "brandSlug": "aditek",
+      "sourceFile": "Molar Band.JPG",
+      "image": "/md/products/aditek/molar-band.jpg",
+      "images": [
+        "/md/products/aditek/molar-band.jpg"
+      ]
+    },
+    {
+      "id": "aditek-niti-wire",
+      "name": "NITI wire",
+      "brandSlug": "aditek",
+      "sourceFile": "NITI wire.JPG",
+      "image": "/md/products/aditek/niti-wire.jpg",
+      "images": [
+        "/md/products/aditek/niti-wire.jpg"
+      ]
+    },
+    {
+      "id": "aditek-open-coil",
+      "name": "Open coil",
+      "brandSlug": "aditek",
+      "sourceFile": "Open coil.JPG",
+      "image": "/md/products/aditek/open-coil.jpg",
+      "images": [
+        "/md/products/aditek/open-coil.jpg"
+      ]
+    },
+    {
+      "id": "aditek-safira-mbt",
+      "name": "Safira MBT",
+      "brandSlug": "aditek",
+      "sourceFile": "Safira MBT.png",
+      "image": "/md/products/aditek/safira-mbt.png",
+      "images": [
+        "/md/products/aditek/safira-mbt.png"
+      ]
+    },
+    {
+      "id": "aditek-safira-roth",
+      "name": "Safira ROTH",
+      "brandSlug": "aditek",
+      "sourceFile": "Safira ROTH.png",
+      "image": "/md/products/aditek/safira-roth.png",
+      "images": [
+        "/md/products/aditek/safira-roth.png"
+      ]
+    },
+    {
+      "id": "aditek-safira-roth",
+      "name": "Safira Roth",
+      "brandSlug": "aditek",
+      "sourceFile": "Safira Roth(1).png",
+      "image": "/md/products/aditek/safira-roth.png",
+      "images": [
+        "/md/products/aditek/safira-roth.png"
+      ]
+    },
+    {
+      "id": "aditek-self-ligating-wire",
+      "name": "Self ligating wire",
+      "brandSlug": "aditek",
+      "sourceFile": "Self ligating wire.JPG",
+      "image": "/md/products/aditek/self-ligating-wire.jpg",
+      "images": [
+        "/md/products/aditek/self-ligating-wire.jpg"
+      ]
+    },
+    {
+      "id": "aditek-ss-archwirejpg",
+      "name": "SS ArchwireJPG",
+      "brandSlug": "aditek",
+      "sourceFile": "SS ArchwireJPG.jpg",
+      "image": "/md/products/aditek/ss-archwirejpg.jpg",
+      "images": [
+        "/md/products/aditek/ss-archwirejpg.jpg"
+      ]
+    },
+    {
+      "id": "aditek-stops",
+      "name": "Stops",
+      "brandSlug": "aditek",
+      "sourceFile": "Stops.JPG",
+      "image": "/md/products/aditek/stops.jpg",
+      "images": [
+        "/md/products/aditek/stops.jpg"
+      ]
+    },
+    {
+      "id": "aditek-twist-flex",
+      "name": "Twist FLEX",
+      "brandSlug": "aditek",
+      "sourceFile": "Twist FLEX.JPG",
+      "image": "/md/products/aditek/twist-flex.jpg",
+      "images": [
+        "/md/products/aditek/twist-flex.jpg"
+      ]
+    },
+    {
+      "id": "aditek-vector-mbt",
+      "name": "Vector MBT",
+      "brandSlug": "aditek",
+      "sourceFile": "Vector MBT.png",
+      "image": "/md/products/aditek/vector-mbt.png",
+      "images": [
+        "/md/products/aditek/vector-mbt.png"
+      ]
+    },
+    {
+      "id": "aditek-vector-roth",
+      "name": "Vector Roth",
+      "brandSlug": "aditek",
+      "sourceFile": "Vector Roth.png",
+      "image": "/md/products/aditek/vector-roth.png",
+      "images": [
+        "/md/products/aditek/vector-roth.png"
+      ]
+    },
+    {
+      "id": "bms-articulating-paper",
+      "name": "Articulating Paper",
+      "brandSlug": "bms",
+      "sourceFile": "Articulating Paper.JPG",
+      "image": "/md/products/bms/articulating-paper.jpg",
+      "images": [
+        "/md/products/bms/articulating-paper.jpg"
+      ]
+    },
+    {
+      "id": "bms-bleaching-kit",
+      "name": "Bleaching kit",
+      "brandSlug": "bms",
+      "sourceFile": "Bleaching kit.JPG",
+      "image": "/md/products/bms/bleaching-kit.jpg",
+      "images": [
+        "/md/products/bms/bleaching-kit.jpg"
+      ]
+    },
+    {
+      "id": "bms-cembest",
+      "name": "CEMBEST",
+      "brandSlug": "bms",
+      "sourceFile": "CEMBEST.JPG",
+      "image": "/md/products/bms/cembest.jpg",
+      "images": [
+        "/md/products/bms/cembest.jpg"
+      ]
+    },
+    {
+      "id": "bms-fillbest",
+      "name": "FILLBEST",
+      "brandSlug": "bms",
+      "sourceFile": "FILLBEST.JPG",
+      "image": "/md/products/bms/fillbest.jpg",
+      "images": [
+        "/md/products/bms/fillbest.jpg"
+      ]
+    },
+    {
+      "id": "bms-gypsum",
+      "name": "Gypsum",
+      "brandSlug": "bms",
+      "sourceFile": "Gypsum.JPG",
+      "image": "/md/products/bms/gypsum.jpg",
+      "images": [
+        "/md/products/bms/gypsum.jpg"
+      ]
+    },
+    {
+      "id": "bms-italgin",
+      "name": "Italgin",
+      "brandSlug": "bms",
+      "sourceFile": "Italgin.JPG",
+      "image": "/md/products/bms/italgin.jpg",
+      "images": [
+        "/md/products/bms/italgin.jpg"
+      ]
+    },
+    {
+      "id": "bms-kriovit",
+      "name": "Kriovit",
+      "brandSlug": "bms",
+      "sourceFile": "Kriovit.JPG",
+      "image": "/md/products/bms/kriovit.jpg",
+      "images": [
+        "/md/products/bms/kriovit.jpg"
+      ]
+    },
+    {
+      "id": "bms-lubrioil",
+      "name": "Lubrioil",
+      "brandSlug": "bms",
+      "sourceFile": "Lubrioil.JPG",
+      "image": "/md/products/bms/lubrioil.jpg",
+      "images": [
+        "/md/products/bms/lubrioil.jpg"
+      ]
+    },
+    {
+      "id": "bms-parrafin-wax",
+      "name": "Parrafin Wax",
+      "brandSlug": "bms",
+      "sourceFile": "Parrafin Wax.JPG",
+      "image": "/md/products/bms/parrafin-wax.jpg",
+      "images": [
+        "/md/products/bms/parrafin-wax.jpg"
+      ]
+    },
+    {
+      "id": "bms-prophyx-v",
+      "name": "Prophyx V",
+      "brandSlug": "bms",
+      "sourceFile": "Prophyx V.JPG",
+      "image": "/md/products/bms/prophyx-v.jpg",
+      "images": [
+        "/md/products/bms/prophyx-v.jpg"
+      ]
+    },
+    {
+      "id": "bms-silibox",
+      "name": "Silibox",
+      "brandSlug": "bms",
+      "sourceFile": "Silibox.JPG",
+      "image": "/md/products/bms/silibox.jpg",
+      "images": [
+        "/md/products/bms/silibox.jpg"
+      ]
+    },
+    {
+      "id": "bms-silikit",
+      "name": "Silikit",
+      "brandSlug": "bms",
+      "sourceFile": "Silikit.JPG",
+      "image": "/md/products/bms/silikit.jpg",
+      "images": [
+        "/md/products/bms/silikit.jpg"
+      ]
+    },
+    {
+      "id": "bms-temporary-filling",
+      "name": "Temporary filling",
+      "brandSlug": "bms",
+      "sourceFile": "Temporary filling.JPG",
+      "image": "/md/products/bms/temporary-filling.jpg",
+      "images": [
+        "/md/products/bms/temporary-filling.jpg"
+      ]
+    },
+    {
+      "id": "bms-vinyl-bite",
+      "name": "Vinyl Bite",
+      "brandSlug": "bms",
+      "sourceFile": "Vinyl Bite.JPG",
+      "image": "/md/products/bms/vinyl-bite.jpg",
+      "images": [
+        "/md/products/bms/vinyl-bite.jpg"
+      ]
+    },
+    {
+      "id": "bms-vinyl-light",
+      "name": "Vinyl Light",
+      "brandSlug": "bms",
+      "sourceFile": "Vinyl Light.JPG",
+      "image": "/md/products/bms/vinyl-light.jpg",
+      "images": [
+        "/md/products/bms/vinyl-light.jpg"
+      ]
+    },
+    {
+      "id": "bms-vinylbest-large",
+      "name": "VinylBest Large",
+      "brandSlug": "bms",
+      "sourceFile": "VinylBest Large.JPG",
+      "image": "/md/products/bms/vinylbest-large.jpg",
+      "images": [
+        "/md/products/bms/vinylbest-large.jpg"
+      ]
+    },
+    {
+      "id": "bms-vinylbest-mini",
+      "name": "VinylBest Mini",
+      "brandSlug": "bms",
+      "sourceFile": "VinylBest Mini.JPG",
+      "image": "/md/products/bms/vinylbest-mini.jpg",
+      "images": [
+        "/md/products/bms/vinylbest-mini.jpg"
+      ]
+    },
+    {
+      "id": "centrix-expose",
+      "name": "Expose",
+      "brandSlug": "centrix",
+      "sourceFile": "Expose.jpeg",
+      "image": "/md/products/centrix/expose.jpeg",
+      "images": [
+        "/md/products/centrix/expose.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-expose",
+      "name": "Expose",
+      "brandSlug": "centrix",
+      "sourceFile": "Expose.png",
+      "image": "/md/products/centrix/expose.png",
+      "images": [
+        "/md/products/centrix/expose.png"
+      ]
+    },
+    {
+      "id": "centrix-fluorodose",
+      "name": "Fluorodose",
+      "brandSlug": "centrix",
+      "sourceFile": "Fluorodose.png",
+      "image": "/md/products/centrix/fluorodose.png",
+      "images": [
+        "/md/products/centrix/fluorodose.png"
+      ]
+    },
+    {
+      "id": "centrix-flurodose",
+      "name": "FluroDose",
+      "brandSlug": "centrix",
+      "sourceFile": "FluroDose.jpeg",
+      "image": "/md/products/centrix/flurodose.jpeg",
+      "images": [
+        "/md/products/centrix/flurodose.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-nomix",
+      "name": "NoMIX",
+      "brandSlug": "centrix",
+      "sourceFile": "NoMIX.jpeg",
+      "image": "/md/products/centrix/nomix.jpeg",
+      "images": [
+        "/md/products/centrix/nomix.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-nomix",
+      "name": "NoMix",
+      "brandSlug": "centrix",
+      "sourceFile": "NoMix.png",
+      "image": "/md/products/centrix/nomix.png",
+      "images": [
+        "/md/products/centrix/nomix.png"
+      ]
+    },
+    {
+      "id": "centrix-supercure-original-q",
+      "name": "SuperCure original & Q",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCure original & Q.jpeg",
+      "image": "/md/products/centrix/supercure-original-q.jpeg",
+      "images": [
+        "/md/products/centrix/supercure-original-q.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-supercure-original",
+      "name": "SuperCure original",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCure original.jpeg",
+      "image": "/md/products/centrix/supercure-original.jpeg",
+      "images": [
+        "/md/products/centrix/supercure-original.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-supercure-original",
+      "name": "SuperCure Original",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCure Original.png",
+      "image": "/md/products/centrix/supercure-original.png",
+      "images": [
+        "/md/products/centrix/supercure-original.png"
+      ]
+    },
+    {
+      "id": "centrix-supercure-q",
+      "name": "SuperCure Q",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCure Q.jpeg",
+      "image": "/md/products/centrix/supercure-q.jpeg",
+      "images": [
+        "/md/products/centrix/supercure-q.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-supercure-q",
+      "name": "SuperCure Q",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCure Q(1).jpeg",
+      "image": "/md/products/centrix/supercure-q.jpeg",
+      "images": [
+        "/md/products/centrix/supercure-q.jpeg"
+      ]
+    },
+    {
+      "id": "centrix-supercureq",
+      "name": "SuperCureQ",
+      "brandSlug": "centrix",
+      "sourceFile": "SuperCureQ.png",
+      "image": "/md/products/centrix/supercureq.png",
+      "images": [
+        "/md/products/centrix/supercureq.png"
+      ]
+    },
+    {
+      "id": "heydent-heytec-nc",
+      "name": "Heytec-NC",
+      "brandSlug": "heydent",
+      "sourceFile": " Heytec-NC.jpg",
+      "image": "/md/products/heydent/heytec-nc.jpg",
+      "images": [
+        "/md/products/heydent/heytec-nc.jpg"
+      ]
+    },
+    {
+      "id": "heydent-bulk-ud",
+      "name": "BULK UD",
+      "brandSlug": "heydent",
+      "sourceFile": "BULK UD.jpg",
+      "image": "/md/products/heydent/bulk-ud.jpg",
+      "images": [
+        "/md/products/heydent/bulk-ud.jpg"
+      ]
+    },
+    {
+      "id": "heydent-cem-veneer",
+      "name": "Cem Veneer",
+      "brandSlug": "heydent",
+      "sourceFile": "Cem Veneer.jpg",
+      "image": "/md/products/heydent/cem-veneer.jpg",
+      "images": [
+        "/md/products/heydent/cem-veneer.jpg"
+      ]
+    },
+    {
+      "id": "heydent-copy-of-slide57",
+      "name": "Copy of Slide57",
+      "brandSlug": "heydent",
+      "sourceFile": "Copy of Slide57.JPG",
+      "image": "/md/products/heydent/copy-of-slide57.jpg",
+      "images": [
+        "/md/products/heydent/copy-of-slide57.jpg"
+      ]
+    },
+    {
+      "id": "heydent-flow-v",
+      "name": "Flow V",
+      "brandSlug": "heydent",
+      "sourceFile": "Flow V.jpg",
+      "image": "/md/products/heydent/flow-v.jpg",
+      "images": [
+        "/md/products/heydent/flow-v.jpg"
+      ]
+    },
+    {
+      "id": "heydent-h-etchbond",
+      "name": "H-etchbond",
+      "brandSlug": "heydent",
+      "sourceFile": "H-etchbond.jpeg",
+      "image": "/md/products/heydent/h-etchbond.jpeg",
+      "images": [
+        "/md/products/heydent/h-etchbond.jpeg"
+      ]
+    },
+    {
+      "id": "heydent-hey-tec-mr",
+      "name": "Hey-TEC MR",
+      "brandSlug": "heydent",
+      "sourceFile": "Hey-TEC MR.jpg",
+      "image": "/md/products/heydent/hey-tec-mr.jpg",
+      "images": [
+        "/md/products/heydent/hey-tec-mr.jpg"
+      ]
+    },
+    {
+      "id": "heydent-hey-tec-universal",
+      "name": "Hey-TEC Universal",
+      "brandSlug": "heydent",
+      "sourceFile": "Hey-TEC Universal.png",
+      "image": "/md/products/heydent/hey-tec-universal.png",
+      "images": [
+        "/md/products/heydent/hey-tec-universal.png"
+      ]
+    },
+    {
+      "id": "heydent-jw-next-power-bleach",
+      "name": "JW NEXT Power Bleach",
+      "brandSlug": "heydent",
+      "sourceFile": "JW NEXT Power Bleach.jpg",
+      "image": "/md/products/heydent/jw-next-power-bleach.jpg",
+      "images": [
+        "/md/products/heydent/jw-next-power-bleach.jpg"
+      ]
+    },
+    {
+      "id": "profa-c-files",
+      "name": "C Files",
+      "brandSlug": "profa",
+      "sourceFile": "C Files.png",
+      "image": "/md/products/profa/c-files.png",
+      "images": [
+        "/md/products/profa/c-files.png"
+      ]
+    },
+    {
+      "id": "profa-eli-gold",
+      "name": "Eli-Gold",
+      "brandSlug": "profa",
+      "sourceFile": "Eli-Gold.png",
+      "image": "/md/products/profa/eli-gold.png",
+      "images": [
+        "/md/products/profa/eli-gold.png"
+      ]
+    },
+    {
+      "id": "profa-gates",
+      "name": "Gates",
+      "brandSlug": "profa",
+      "sourceFile": "Gates.png",
+      "image": "/md/products/profa/gates.png",
+      "images": [
+        "/md/products/profa/gates.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-8",
+      "name": "K files #8",
+      "brandSlug": "profa",
+      "sourceFile": "K files #8.png",
+      "image": "/md/products/profa/k-files-8.png",
+      "images": [
+        "/md/products/profa/k-files-8.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-10",
+      "name": "K files #10",
+      "brandSlug": "profa",
+      "sourceFile": "K files #10.png",
+      "image": "/md/products/profa/k-files-10.png",
+      "images": [
+        "/md/products/profa/k-files-10.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-15",
+      "name": "K files #15",
+      "brandSlug": "profa",
+      "sourceFile": "K files #15.png",
+      "image": "/md/products/profa/k-files-15.png",
+      "images": [
+        "/md/products/profa/k-files-15.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-25",
+      "name": "K files #25",
+      "brandSlug": "profa",
+      "sourceFile": "K files #25.png",
+      "image": "/md/products/profa/k-files-25.png",
+      "images": [
+        "/md/products/profa/k-files-25.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-6",
+      "name": "K-Files 6",
+      "brandSlug": "profa",
+      "sourceFile": "K-Files 6.png",
+      "image": "/md/products/profa/k-files-6.png",
+      "images": [
+        "/md/products/profa/k-files-6.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-8",
+      "name": "K-Files 8",
+      "brandSlug": "profa",
+      "sourceFile": "K-Files 8.png",
+      "image": "/md/products/profa/k-files-8.png",
+      "images": [
+        "/md/products/profa/k-files-8.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-10",
+      "name": "K-Files 10",
+      "brandSlug": "profa",
+      "sourceFile": "K-Files 10.png",
+      "image": "/md/products/profa/k-files-10.png",
+      "images": [
+        "/md/products/profa/k-files-10.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-10l",
+      "name": "K-Files 10L",
+      "brandSlug": "profa",
+      "sourceFile": "K-Files 10L.png",
+      "image": "/md/products/profa/k-files-10l.png",
+      "images": [
+        "/md/products/profa/k-files-10l.png"
+      ]
+    },
+    {
+      "id": "profa-k-files-15-l",
+      "name": "K-Files 15 L",
+      "brandSlug": "profa",
+      "sourceFile": "K-Files 15 L.png",
+      "image": "/md/products/profa/k-files-15-l.png",
+      "images": [
+        "/md/products/profa/k-files-15-l.png"
+      ]
+    },
+    {
+      "id": "profa-spreaders-15-40",
+      "name": "Spreaders #15-40",
+      "brandSlug": "profa",
+      "sourceFile": "Spreaders #15-40.png",
+      "image": "/md/products/profa/spreaders-15-40.png",
+      "images": [
+        "/md/products/profa/spreaders-15-40.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue",
+      "name": "T Blue",
+      "brandSlug": "profa",
+      "sourceFile": "T Blue.png",
+      "image": "/md/products/profa/t-blue.png",
+      "images": [
+        "/md/products/profa/t-blue.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-20-4",
+      "name": "T-blue 20.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 20.4.png",
+      "image": "/md/products/profa/t-blue-20-4.png",
+      "images": [
+        "/md/products/profa/t-blue-20-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-20-6",
+      "name": "T-blue 20.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 20.6.png",
+      "image": "/md/products/profa/t-blue-20-6.png",
+      "images": [
+        "/md/products/profa/t-blue-20-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-25-4",
+      "name": "T-blue 25.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 25.4.png",
+      "image": "/md/products/profa/t-blue-25-4.png",
+      "images": [
+        "/md/products/profa/t-blue-25-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-25-6",
+      "name": "T-blue 25.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 25.6.png",
+      "image": "/md/products/profa/t-blue-25-6.png",
+      "images": [
+        "/md/products/profa/t-blue-25-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-30-4",
+      "name": "T-blue 30.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 30.4.png",
+      "image": "/md/products/profa/t-blue-30-4.png",
+      "images": [
+        "/md/products/profa/t-blue-30-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-30-6",
+      "name": "T-blue 30.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 30.6.png",
+      "image": "/md/products/profa/t-blue-30-6.png",
+      "images": [
+        "/md/products/profa/t-blue-30-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-35-4",
+      "name": "T-blue 35.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 35.4.png",
+      "image": "/md/products/profa/t-blue-35-4.png",
+      "images": [
+        "/md/products/profa/t-blue-35-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-35-6",
+      "name": "T-blue 35.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 35.6.png",
+      "image": "/md/products/profa/t-blue-35-6.png",
+      "images": [
+        "/md/products/profa/t-blue-35-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-40-4",
+      "name": "T-blue 40.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 40.4.png",
+      "image": "/md/products/profa/t-blue-40-4.png",
+      "images": [
+        "/md/products/profa/t-blue-40-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-40-6",
+      "name": "T-blue 40.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 40.6.png",
+      "image": "/md/products/profa/t-blue-40-6.png",
+      "images": [
+        "/md/products/profa/t-blue-40-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-45-4",
+      "name": "T-blue 45.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 45.4.png",
+      "image": "/md/products/profa/t-blue-45-4.png",
+      "images": [
+        "/md/products/profa/t-blue-45-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-45-6",
+      "name": "T-blue 45.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 45.6.png",
+      "image": "/md/products/profa/t-blue-45-6.png",
+      "images": [
+        "/md/products/profa/t-blue-45-6.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-50-4",
+      "name": "T-blue 50.4",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 50.4.png",
+      "image": "/md/products/profa/t-blue-50-4.png",
+      "images": [
+        "/md/products/profa/t-blue-50-4.png"
+      ]
+    },
+    {
+      "id": "profa-t-blue-50-6",
+      "name": "T-blue 50.6",
+      "brandSlug": "profa",
+      "sourceFile": "T-blue 50.6.png",
+      "image": "/md/products/profa/t-blue-50-6.png",
+      "images": [
+        "/md/products/profa/t-blue-50-6.png"
+      ]
+    }
+  ],
+  "productFilesByBrand": {
+    "aditek": {
+      " BioCrystal.png": "/md/products/aditek/biocrystal.png",
+      " Biomax MBT.png": "/md/products/aditek/biomax-mbt.png",
+      " Vector+ Jorge Rodrigues.jpeg": "/md/products/aditek/vector-jorge-rodrigues.jpeg",
+      "Ball Hook.JPG": "/md/products/aditek/ball-hook.jpg",
+      "BioComfort.JPG": "/md/products/aditek/biocomfort.jpg",
+      "Biomax Roth.png": "/md/products/aditek/biomax-roth.png",
+      "Bite turbo.JPG": "/md/products/aditek/bite-turbo.jpg",
+      "closed coil 6mm.png": "/md/products/aditek/closed-coil-6mm.png",
+      "Closed Coil.JPG": "/md/products/aditek/closed-coil.jpg",
+      "Crimpable hook.png": "/md/products/aditek/crimpable-hook.png",
+      "EasyClear.JPG": "/md/products/aditek/easyclear.jpg",
+      "EasyClip low torque.png": "/md/products/aditek/easyclip-low-torque.png",
+      "EasyClip standard.png": "/md/products/aditek/easyclip-standard.png",
+      "easyclip tool (1).png": "/md/products/aditek/easyclip-tool.png",
+      "EasyClip+.JPG": "/md/products/aditek/easyclip.jpg",
+      "FIX.JPG": "/md/products/aditek/fix.jpg",
+      "Ligature Wire 50gm.JPG": "/md/products/aditek/ligature-wire-50gm.jpg",
+      "Light bonito.png": "/md/products/aditek/light-bonito.png",
+      "MEMOFLEX Copolyester.jpeg": "/md/products/aditek/memoflex-copolyester.jpeg",
+      "MEMOFLEX PETG .JPG": "/md/products/aditek/memoflex-petg.jpg",
+      "Molar Band.JPG": "/md/products/aditek/molar-band.jpg",
+      "NITI wire.JPG": "/md/products/aditek/niti-wire.jpg",
+      "Open coil.JPG": "/md/products/aditek/open-coil.jpg",
+      "Safira MBT.png": "/md/products/aditek/safira-mbt.png",
+      "Safira ROTH.png": "/md/products/aditek/safira-roth.png",
+      "Safira Roth(1).png": "/md/products/aditek/safira-roth.png",
+      "Self ligating wire.JPG": "/md/products/aditek/self-ligating-wire.jpg",
+      "SS ArchwireJPG.jpg": "/md/products/aditek/ss-archwirejpg.jpg",
+      "Stops.JPG": "/md/products/aditek/stops.jpg",
+      "Twist FLEX.JPG": "/md/products/aditek/twist-flex.jpg",
+      "Vector MBT.png": "/md/products/aditek/vector-mbt.png",
+      "Vector Roth.png": "/md/products/aditek/vector-roth.png"
+    },
+    "bms": {
+      "Articulating Paper.JPG": "/md/products/bms/articulating-paper.jpg",
+      "Bleaching kit.JPG": "/md/products/bms/bleaching-kit.jpg",
+      "CEMBEST.JPG": "/md/products/bms/cembest.jpg",
+      "FILLBEST.JPG": "/md/products/bms/fillbest.jpg",
+      "Gypsum.JPG": "/md/products/bms/gypsum.jpg",
+      "Italgin.JPG": "/md/products/bms/italgin.jpg",
+      "Kriovit.JPG": "/md/products/bms/kriovit.jpg",
+      "Lubrioil.JPG": "/md/products/bms/lubrioil.jpg",
+      "Parrafin Wax.JPG": "/md/products/bms/parrafin-wax.jpg",
+      "Prophyx V.JPG": "/md/products/bms/prophyx-v.jpg",
+      "Silibox.JPG": "/md/products/bms/silibox.jpg",
+      "Silikit.JPG": "/md/products/bms/silikit.jpg",
+      "Temporary filling.JPG": "/md/products/bms/temporary-filling.jpg",
+      "Vinyl Bite.JPG": "/md/products/bms/vinyl-bite.jpg",
+      "Vinyl Light.JPG": "/md/products/bms/vinyl-light.jpg",
+      "VinylBest Large.JPG": "/md/products/bms/vinylbest-large.jpg",
+      "VinylBest Mini.JPG": "/md/products/bms/vinylbest-mini.jpg"
+    },
+    "centrix": {
+      "Expose.jpeg": "/md/products/centrix/expose.jpeg",
+      "Expose.png": "/md/products/centrix/expose.png",
+      "Fluorodose.png": "/md/products/centrix/fluorodose.png",
+      "FluroDose.jpeg": "/md/products/centrix/flurodose.jpeg",
+      "NoMIX.jpeg": "/md/products/centrix/nomix.jpeg",
+      "NoMix.png": "/md/products/centrix/nomix.png",
+      "SuperCure original & Q.jpeg": "/md/products/centrix/supercure-original-q.jpeg",
+      "SuperCure original.jpeg": "/md/products/centrix/supercure-original.jpeg",
+      "SuperCure Original.png": "/md/products/centrix/supercure-original.png",
+      "SuperCure Q.jpeg": "/md/products/centrix/supercure-q.jpeg",
+      "SuperCure Q(1).jpeg": "/md/products/centrix/supercure-q.jpeg",
+      "SuperCureQ.png": "/md/products/centrix/supercureq.png"
+    },
+    "heydent": {
+      " Heytec-NC.jpg": "/md/products/heydent/heytec-nc.jpg",
+      "BULK UD.jpg": "/md/products/heydent/bulk-ud.jpg",
+      "Cem Veneer.jpg": "/md/products/heydent/cem-veneer.jpg",
+      "Copy of Slide57.JPG": "/md/products/heydent/copy-of-slide57.jpg",
+      "Flow V.jpg": "/md/products/heydent/flow-v.jpg",
+      "H-etchbond.jpeg": "/md/products/heydent/h-etchbond.jpeg",
+      "Hey-TEC MR.jpg": "/md/products/heydent/hey-tec-mr.jpg",
+      "Hey-TEC Universal.png": "/md/products/heydent/hey-tec-universal.png",
+      "JW NEXT Power Bleach.jpg": "/md/products/heydent/jw-next-power-bleach.jpg"
+    },
+    "profa": {
+      "C Files.png": "/md/products/profa/c-files.png",
+      "Eli-Gold.png": "/md/products/profa/eli-gold.png",
+      "Gates.png": "/md/products/profa/gates.png",
+      "K files #8.png": "/md/products/profa/k-files-8.png",
+      "K files #10.png": "/md/products/profa/k-files-10.png",
+      "K files #15.png": "/md/products/profa/k-files-15.png",
+      "K files #25.png": "/md/products/profa/k-files-25.png",
+      "K-Files 6.png": "/md/products/profa/k-files-6.png",
+      "K-Files 8.png": "/md/products/profa/k-files-8.png",
+      "K-Files 10.png": "/md/products/profa/k-files-10.png",
+      "K-Files 10L.png": "/md/products/profa/k-files-10l.png",
+      "K-Files 15 L.png": "/md/products/profa/k-files-15-l.png",
+      "Spreaders #15-40.png": "/md/products/profa/spreaders-15-40.png",
+      "T Blue.png": "/md/products/profa/t-blue.png",
+      "T-blue 20.4.png": "/md/products/profa/t-blue-20-4.png",
+      "T-blue 20.6.png": "/md/products/profa/t-blue-20-6.png",
+      "T-blue 25.4.png": "/md/products/profa/t-blue-25-4.png",
+      "T-blue 25.6.png": "/md/products/profa/t-blue-25-6.png",
+      "T-blue 30.4.png": "/md/products/profa/t-blue-30-4.png",
+      "T-blue 30.6.png": "/md/products/profa/t-blue-30-6.png",
+      "T-blue 35.4.png": "/md/products/profa/t-blue-35-4.png",
+      "T-blue 35.6.png": "/md/products/profa/t-blue-35-6.png",
+      "T-blue 40.4.png": "/md/products/profa/t-blue-40-4.png",
+      "T-blue 40.6.png": "/md/products/profa/t-blue-40-6.png",
+      "T-blue 45.4.png": "/md/products/profa/t-blue-45-4.png",
+      "T-blue 45.6.png": "/md/products/profa/t-blue-45-6.png",
+      "T-blue 50.4.png": "/md/products/profa/t-blue-50-4.png",
+      "T-blue 50.6.png": "/md/products/profa/t-blue-50-6.png"
+    }
+  },
+  "story": {
+    "2019": "/md/story/2019.jpeg",
+    "2020": "/md/story/2020.jpg",
+    "2021": "/md/story/2021.jpg",
+    "2022": "/md/story/2022.png",
+    "2023": "/md/story/2023.jpg",
+    "2024": "/md/story/2024.jpg"
+  },
+  "events": [
+    {
+      "id": "workshop-2026-dr-mohamed-hadida",
+      "title": "Dr.Mohamed Hadida (2026)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2026,
+      "folder": "Dr.Mohamed Hadida",
+      "image": "/md/events/2026/workshop-2026-dr-mohamed-hadida/cover.jpg",
+      "galleryImages": [
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/cover.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-1.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-2.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-3.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-4.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-5.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-6.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida/gallery-7.jpg"
+      ],
+      "imageCount": 14
+    },
+    {
+      "id": "workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal",
+      "title": "Dr.Mohamed Hadida & Dr.Mahmoud El-gamaal (2026)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2026,
+      "folder": "Dr.Mohamed Hadida & Dr.Mahmoud El-gamaal",
+      "image": "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/cover.jpg",
+      "galleryImages": [
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/cover.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-1.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-2.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-3.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-4.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-5.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-6.jpg",
+        "/md/events/2026/workshop-2026-dr-mohamed-hadida-dr-mahmoud-el-gamaal/gallery-7.jpg"
+      ],
+      "imageCount": 11
+    },
+    {
+      "id": "workshop-2026-fue-endodontic-program",
+      "title": "FUE Endodontic Program (2026)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2026,
+      "folder": "FUE Endodontic Program",
+      "image": "/md/events/2026/workshop-2026-fue-endodontic-program/cover.jpg",
+      "galleryImages": [
+        "/md/events/2026/workshop-2026-fue-endodontic-program/cover.jpg",
+        "/md/events/2026/workshop-2026-fue-endodontic-program/gallery-1.jpg",
+        "/md/events/2026/workshop-2026-fue-endodontic-program/gallery-2.jpg",
+        "/md/events/2026/workshop-2026-fue-endodontic-program/gallery-3.jpg",
+        "/md/events/2026/workshop-2026-fue-endodontic-program/gallery-4.jpg"
+      ],
+      "imageCount": 5
+    },
+    {
+      "id": "conference-2026-idex",
+      "title": "IDEX (2026)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2026,
+      "folder": "IDEX",
+      "image": "/md/events/2026/conference-2026-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2026/conference-2026-idex/cover.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-1.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-2.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-3.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-4.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-5.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-6.jpg",
+        "/md/events/2026/conference-2026-idex/gallery-7.jpg"
+      ],
+      "imageCount": 13
+    },
+    {
+      "id": "conference-2026-sidc",
+      "title": "مؤتمر سوهاج الدولي SIDC (2026)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2026,
+      "folder": "مؤتمر سوهاج الدولي SIDC ",
+      "image": "/md/events/2026/conference-2026-sidc/cover.jpg",
+      "galleryImages": [
+        "/md/events/2026/conference-2026-sidc/cover.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-1.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-2.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-3.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-4.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-5.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-6.jpg",
+        "/md/events/2026/conference-2026-sidc/gallery-7.jpg"
+      ],
+      "imageCount": 9
+    },
+    {
+      "id": "workshop-2025-dr-amr-abdelrahman",
+      "title": "Dr. Amr Abdelrahman (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Dr. Amr Abdelrahman",
+      "image": "/md/events/2025/workshop-2025-dr-amr-abdelrahman/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/cover.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-dr-amr-abdelrahman/gallery-7.jpg"
+      ],
+      "imageCount": 12
+    },
+    {
+      "id": "workshop-2025-dr-mahmoud-el-nagar",
+      "title": "Dr. Mahmoud El-nagar (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Dr. Mahmoud El-nagar",
+      "image": "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/cover.jpg",
+        "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-dr-mahmoud-el-nagar/gallery-4.jpg"
+      ],
+      "imageCount": 5
+    },
+    {
+      "id": "workshop-2025-dr-mohamed-hadida",
+      "title": "Dr. Mohamed Hadida (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Dr. Mohamed Hadida",
+      "image": "/md/events/2025/workshop-2025-dr-mohamed-hadida/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/cover.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-dr-mohamed-hadida/gallery-7.jpg"
+      ],
+      "imageCount": 45
+    },
+    {
+      "id": "conference-2025-eds",
+      "title": "EDS (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "EDS",
+      "image": "/md/events/2025/conference-2025-eds/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-eds/cover.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-1.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-2.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-3.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-4.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-5.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-6.jpg",
+        "/md/events/2025/conference-2025-eds/gallery-7.jpg"
+      ],
+      "imageCount": 28
+    },
+    {
+      "id": "workshop-2025-endo-dr-nehal-nabil",
+      "title": "Endo Dr.Nehal Nabil (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Endo Dr.Nehal Nabil",
+      "image": "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/cover.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-endo-dr-nehal-nabil/gallery-6.jpg"
+      ],
+      "imageCount": 7
+    },
+    {
+      "id": "workshop-2025-endo-endodontic-program-fue",
+      "title": "Endo endodontic program FUE (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Endo endodontic program FUE",
+      "image": "/md/events/2025/workshop-2025-endo-endodontic-program-fue/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/cover.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-endo-endodontic-program-fue/gallery-7.jpg"
+      ],
+      "imageCount": 11
+    },
+    {
+      "id": "conference-2025-idc",
+      "title": "IDC (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "IDC",
+      "image": "/md/events/2025/conference-2025-idc/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-idc/cover.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-1.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-2.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-3.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-4.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-5.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-6.jpg",
+        "/md/events/2025/conference-2025-idc/gallery-7.jpg"
+      ],
+      "imageCount": 9
+    },
+    {
+      "id": "conference-2025-idex",
+      "title": "IDEX (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "IDEX",
+      "image": "/md/events/2025/conference-2025-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-idex/cover.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-1.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-2.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-3.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-4.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-5.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-6.jpg",
+        "/md/events/2025/conference-2025-idex/gallery-7.jpg"
+      ],
+      "imageCount": 32
+    },
+    {
+      "id": "conference-2025-launching-event-for-heydent",
+      "title": "launching event for heydent (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "launching event for heydent",
+      "image": "/md/events/2025/conference-2025-launching-event-for-heydent/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-launching-event-for-heydent/cover.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-1.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-2.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-3.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-4.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-5.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-6.jpg",
+        "/md/events/2025/conference-2025-launching-event-for-heydent/gallery-7.jpg"
+      ],
+      "imageCount": 35
+    },
+    {
+      "id": "workshop-2025-ortho-dr-amr-askr",
+      "title": "Ortho Dr.Amr Askr (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Ortho Dr.Amr Askr",
+      "image": "/md/events/2025/workshop-2025-ortho-dr-amr-askr/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/cover.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-amr-askr/gallery-7.jpg"
+      ],
+      "imageCount": 16
+    },
+    {
+      "id": "workshop-2025-ortho-dr-mohamed-el-saharty",
+      "title": "Ortho Dr.Mohamed El-saharty (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "Ortho Dr.Mohamed El-saharty",
+      "image": "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/cover.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-ortho-dr-mohamed-el-saharty/gallery-7.jpg"
+      ],
+      "imageCount": 12
+    },
+    {
+      "id": "workshop-2025-space",
+      "title": "SPACE (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "SPACE",
+      "image": "/md/events/2025/workshop-2025-space/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-space/cover.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-space/gallery-7.jpg"
+      ],
+      "imageCount": 14
+    },
+    {
+      "id": "workshop-2025-U6MAwPINSg",
+      "title": "جامعه العلمين الدوليه (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "جامعه العلمين الدوليه",
+      "image": "/md/events/2025/workshop-2025-U6MAwPINSg/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-U6MAwPINSg/cover.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-U6MAwPINSg/gallery-7.jpg"
+      ],
+      "imageCount": 15
+    },
+    {
+      "id": "workshop-2025-NjRrelIu95",
+      "title": "جامعه المنوفيه (2025)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2025,
+      "folder": "جامعه المنوفيه",
+      "image": "/md/events/2025/workshop-2025-NjRrelIu95/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/workshop-2025-NjRrelIu95/cover.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-1.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-2.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-3.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-4.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-5.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-6.jpg",
+        "/md/events/2025/workshop-2025-NjRrelIu95/gallery-7.jpg"
+      ],
+      "imageCount": 14
+    },
+    {
+      "id": "conference-2025-a-Sz10_ufV",
+      "title": "جامعه عين شمس (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "جامعه عين شمس",
+      "image": "/md/events/2025/conference-2025-a-Sz10_ufV/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-a-Sz10_ufV/cover.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-1.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-2.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-3.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-4.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-5.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-6.jpg",
+        "/md/events/2025/conference-2025-a-Sz10_ufV/gallery-7.jpg"
+      ],
+      "imageCount": 27
+    },
+    {
+      "id": "conference-2025-NEPtUqWgTa",
+      "title": "مركز القاهره الدولي للمؤتمرات (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "مركز القاهره الدولي للمؤتمرات",
+      "image": "/md/events/2025/conference-2025-NEPtUqWgTa/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-NEPtUqWgTa/cover.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-1.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-2.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-3.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-4.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-5.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-6.jpg",
+        "/md/events/2025/conference-2025-NEPtUqWgTa/gallery-7.jpg"
+      ],
+      "imageCount": 15
+    },
+    {
+      "id": "conference-2025-7AHjV_ZGzj",
+      "title": "نقابه اطباء الدقهليه (2025)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2025,
+      "folder": "نقابه اطباء الدقهليه",
+      "image": "/md/events/2025/conference-2025-7AHjV_ZGzj/cover.jpg",
+      "galleryImages": [
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/cover.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-1.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-2.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-3.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-4.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-5.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-6.jpg",
+        "/md/events/2025/conference-2025-7AHjV_ZGzj/gallery-7.jpg"
+      ],
+      "imageCount": 11
+    },
+    {
+      "id": "workshop-2024-dr-ibrahim-mansour",
+      "title": "Dr. Ibrahim Mansour (2024)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2024,
+      "folder": "Dr. Ibrahim Mansour",
+      "image": "/md/events/2024/workshop-2024-dr-ibrahim-mansour/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/cover.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-1.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-2.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-3.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-4.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-5.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-6.jpg",
+        "/md/events/2024/workshop-2024-dr-ibrahim-mansour/gallery-7.jpg"
+      ],
+      "imageCount": 9
+    },
+    {
+      "id": "workshop-2024-dr-mohamed-hadida",
+      "title": "Dr. Mohamed Hadida (2024)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2024,
+      "folder": "Dr. Mohamed Hadida",
+      "image": "/md/events/2024/workshop-2024-dr-mohamed-hadida/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/cover.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-1.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-2.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-3.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-4.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-5.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-6.jpg",
+        "/md/events/2024/workshop-2024-dr-mohamed-hadida/gallery-7.jpg"
+      ],
+      "imageCount": 15
+    },
+    {
+      "id": "workshop-2024-dr-mostafa-anwar",
+      "title": "Dr. Mostafa Anwar (2024)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2024,
+      "folder": "Dr. Mostafa Anwar",
+      "image": "/md/events/2024/workshop-2024-dr-mostafa-anwar/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/workshop-2024-dr-mostafa-anwar/cover.jpg"
+      ],
+      "imageCount": 1
+    },
+    {
+      "id": "conference-2024-idex",
+      "title": "IDEX (2024)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2024,
+      "folder": "IDEX",
+      "image": "/md/events/2024/conference-2024-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/conference-2024-idex/cover.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-1.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-2.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-3.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-4.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-5.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-6.jpg",
+        "/md/events/2024/conference-2024-idex/gallery-7.jpg"
+      ],
+      "imageCount": 51
+    },
+    {
+      "id": "workshop-2024-ortho-dr-amr-askr",
+      "title": "Ortho Dr. Amr Askr (2024)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2024,
+      "folder": "Ortho Dr. Amr Askr",
+      "image": "/md/events/2024/workshop-2024-ortho-dr-amr-askr/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/cover.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-1.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-2.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-3.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-4.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-5.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-6.jpg",
+        "/md/events/2024/workshop-2024-ortho-dr-amr-askr/gallery-7.jpg"
+      ],
+      "imageCount": 14
+    },
+    {
+      "id": "workshop-2024-ACzKJOu13Z",
+      "title": "جمعية تقويم الاسنان المصريه (2024)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2024,
+      "folder": "جمعية تقويم الاسنان المصريه",
+      "image": "/md/events/2024/workshop-2024-ACzKJOu13Z/cover.jpg",
+      "galleryImages": [
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/cover.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-1.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-2.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-3.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-4.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-5.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-6.jpg",
+        "/md/events/2024/workshop-2024-ACzKJOu13Z/gallery-7.jpg"
+      ],
+      "imageCount": 18
+    },
+    {
+      "id": "conference-2023-bue",
+      "title": "BUE (2023)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2023,
+      "folder": "BUE",
+      "image": "/md/events/2023/conference-2023-bue/cover.jpg",
+      "galleryImages": [
+        "/md/events/2023/conference-2023-bue/cover.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-1.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-2.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-3.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-4.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-5.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-6.jpg",
+        "/md/events/2023/conference-2023-bue/gallery-7.jpg"
+      ],
+      "imageCount": 12
+    },
+    {
+      "id": "conference-2023-dubai-edic",
+      "title": "Dubai EDIC (2023)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2023,
+      "folder": "Dubai EDIC",
+      "image": "/md/events/2023/conference-2023-dubai-edic/cover.jpg",
+      "galleryImages": [
+        "/md/events/2023/conference-2023-dubai-edic/cover.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-1.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-2.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-3.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-4.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-5.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-6.jpg",
+        "/md/events/2023/conference-2023-dubai-edic/gallery-7.jpg"
+      ],
+      "imageCount": 10
+    },
+    {
+      "id": "conference-2023-idex",
+      "title": "IDEX (2023)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2023,
+      "folder": "IDEX",
+      "image": "/md/events/2023/conference-2023-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2023/conference-2023-idex/cover.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-1.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-2.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-3.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-4.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-5.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-6.jpg",
+        "/md/events/2023/conference-2023-idex/gallery-7.jpg"
+      ],
+      "imageCount": 13
+    },
+    {
+      "id": "workshop-2023-ortho-dr-amr-askr",
+      "title": "Ortho Dr.Amr Askr (2023)",
+      "type": "WORKSHOP",
+      "typeLabel": "Workshop",
+      "year": 2023,
+      "folder": "Ortho Dr.Amr Askr",
+      "image": "/md/events/2023/workshop-2023-ortho-dr-amr-askr/cover.jpg",
+      "galleryImages": [
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/cover.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-1.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-2.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-3.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-4.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-5.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-6.jpg",
+        "/md/events/2023/workshop-2023-ortho-dr-amr-askr/gallery-7.jpg"
+      ],
+      "imageCount": 17
+    },
+    {
+      "id": "conference-2023-1qLpx8WdyI",
+      "title": "جمعيه تقويم الاسنان المصريه (2023)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2023,
+      "folder": "جمعيه تقويم الاسنان المصريه",
+      "image": "/md/events/2023/conference-2023-1qLpx8WdyI/cover.jpg",
+      "galleryImages": [
+        "/md/events/2023/conference-2023-1qLpx8WdyI/cover.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-1.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-2.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-3.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-4.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-5.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-6.jpg",
+        "/md/events/2023/conference-2023-1qLpx8WdyI/gallery-7.jpg"
+      ],
+      "imageCount": 13
+    },
+    {
+      "id": "conference-2022-dubai-edic",
+      "title": "Dubai EDIC (2022)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2022,
+      "folder": "Dubai EDIC",
+      "image": "/md/events/2022/conference-2022-dubai-edic/cover.png",
+      "galleryImages": [
+        "/md/events/2022/conference-2022-dubai-edic/cover.png",
+        "/md/events/2022/conference-2022-dubai-edic/gallery-1.png",
+        "/md/events/2022/conference-2022-dubai-edic/gallery-2.png"
+      ],
+      "imageCount": 3
+    },
+    {
+      "id": "conference-2022-idex",
+      "title": "IDEX (2022)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2022,
+      "folder": "IDEX",
+      "image": "/md/events/2022/conference-2022-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2022/conference-2022-idex/cover.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-1.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-2.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-3.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-4.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-5.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-6.jpg",
+        "/md/events/2022/conference-2022-idex/gallery-7.jpg"
+      ],
+      "imageCount": 22
+    },
+    {
+      "id": "conference-2022-dg5gUSGS0Z",
+      "title": "جمعيه التقويم المصريه (2022)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2022,
+      "folder": "جمعيه التقويم المصريه",
+      "image": "/md/events/2022/conference-2022-dg5gUSGS0Z/cover.jpg",
+      "galleryImages": [
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/cover.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-1.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-2.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-3.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-4.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-5.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-6.jpg",
+        "/md/events/2022/conference-2022-dg5gUSGS0Z/gallery-7.jpg"
+      ],
+      "imageCount": 13
+    },
+    {
+      "id": "conference-2021-edsic",
+      "title": "EDSIC (2021)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2021,
+      "folder": "EDSIC",
+      "image": "/md/events/2021/conference-2021-edsic/cover.jpg",
+      "galleryImages": [
+        "/md/events/2021/conference-2021-edsic/cover.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-1.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-2.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-3.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-4.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-5.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-6.jpg",
+        "/md/events/2021/conference-2021-edsic/gallery-7.jpg"
+      ],
+      "imageCount": 8
+    },
+    {
+      "id": "conference-2021-idex",
+      "title": "IDEX (2021)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2021,
+      "folder": "IDEX",
+      "image": "/md/events/2021/conference-2021-idex/cover.jpg",
+      "galleryImages": [
+        "/md/events/2021/conference-2021-idex/cover.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-1.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-2.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-3.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-4.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-5.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-6.jpg",
+        "/md/events/2021/conference-2021-idex/gallery-7.jpg"
+      ],
+      "imageCount": 26
+    },
+    {
+      "id": "conference-2020-edd",
+      "title": "EDD (2020)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2020,
+      "folder": "EDD",
+      "image": "/md/events/2020/conference-2020-edd/cover.jpg",
+      "galleryImages": [
+        "/md/events/2020/conference-2020-edd/cover.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-1.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-2.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-3.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-4.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-5.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-6.jpg",
+        "/md/events/2020/conference-2020-edd/gallery-7.jpg"
+      ],
+      "imageCount": 19
+    },
+    {
+      "id": "conference-2020-show-dental",
+      "title": "Show dental (2020)",
+      "type": "CONFERENCE",
+      "typeLabel": "Conference",
+      "year": 2020,
+      "folder": "Show dental",
+      "image": "/md/events/2020/conference-2020-show-dental/cover.jpg",
+      "galleryImages": [
+        "/md/events/2020/conference-2020-show-dental/cover.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-1.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-2.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-3.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-4.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-5.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-6.jpg",
+        "/md/events/2020/conference-2020-show-dental/gallery-7.jpg"
+      ],
+      "imageCount": 28
+    }
+  ]
+}

@@ -1,24 +1,23 @@
 export const JOURNEY_STEPS = [
   { id: 'authority', label: 'Hero', short: '01' },
   { id: 'story', label: 'Our Story', short: '02' },
-  { id: 'vision', label: 'Vision', short: '03' },
-  { id: 'partners', label: 'Partners', short: '04' },
-  { id: 'reach', label: 'Reach', short: '05' },
-  { id: 'products', label: 'Products', short: '06' },
-  { id: 'promise', label: 'Promise', short: '07' },
-  { id: 'faq', label: 'FAQ', short: '08' },
-  { id: 'contact', label: 'Contact', short: '09' },
+  { id: 'partners', label: 'Partners', short: '03' },
+  { id: 'reach', label: 'Reach', short: '04' },
+  { id: 'products', label: 'Products', short: '05' },
+  { id: 'promise', label: 'Promise', short: '06' },
+  { id: 'faq', label: 'FAQ', short: '07' },
+  { id: 'contact', label: 'Contact', short: '08' },
 ] as const;
 
 export const MANUFACTURERS = [
-  { name: 'Aditek', slug: 'aditek', country: 'Brazil' },
-  { name: 'BMS', slug: 'bms', country: 'Italy' },
-  { name: 'Heydent', slug: 'heydent', country: 'Germany' },
-  { name: 'SIN', slug: 'sin', country: 'Brazil' },
   { name: 'Centrix', slug: 'centrix', country: 'USA' },
+  { name: 'Heydent', slug: 'heydent', country: 'Germany' },
+  { name: 'BMS', slug: 'bms', country: 'Italy' },
+  { name: 'WBT', slug: 'wbt', country: 'South Korea' },
+  { name: 'Aditek', slug: 'aditek', country: 'Brazil' },
+  { name: 'SIN', slug: 'sin', country: 'Brazil' },
   { name: 'PROFA', slug: 'profa', country: 'China' },
   { name: 'TopGlove', slug: 'topglove', country: 'Malaysia' },
-  { name: 'WBT', slug: 'wbt', country: 'South Korea' },
 ] as const;
 
 export const METRICS = [
@@ -47,7 +46,7 @@ export { FEATURED_PRODUCTS } from '@/content/products';
 export const HERO = {
   eyebrow: 'MD Dental · Exclusive Distributor',
   headlineLead: 'The Dental Supply',
-  headlineTyped: ['Knowledge Platform', 'Distribution Network', 'Clinical Partner'],
+  headlineSub: 'Strategically growing for you',
   lead:
     'From premium instruments to clinical guides, we equip dental professionals with everything they need to deliver exceptional patient care.',
   stats: [

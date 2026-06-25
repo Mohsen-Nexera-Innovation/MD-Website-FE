@@ -2,11 +2,15 @@
 
 import type { RefObject } from 'react';
 import { useEffect, useRef } from 'react';
-import { HERO_SLIDES, HERO_VIDEO_START_SEC, HERO_VIDEO_YT_ID } from '@/content/heroSlides';
+import {
+  HERO_SLIDES,
+  HERO_VIDEO_END_TRIM_SEC,
+  HERO_VIDEO_SRC,
+  HERO_VIDEO_START_SEC,
+} from '@/content/heroSlides';
 
 /**
  * Minimal control surface the hero uses to drive the stepper from the video.
- * Backed by the YouTube IFrame player, but kept generic on purpose.
  */
 export type HeroMediaController = {
   getCurrentTime: () => number;
@@ -21,101 +25,68 @@ type HeroFigmaMediaProps = {
   reduceMotion: boolean;
 };
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-declare global {
-  interface Window {
-    YT?: any;
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
-
-let ytApiPromise: Promise<void> | null = null;
-
-/** Load the YouTube IFrame API once and resolve when YT.Player is available. */
-function loadYouTubeApi(): Promise<void> {
-  if (typeof window === 'undefined') return Promise.resolve();
-  if (window.YT && window.YT.Player) return Promise.resolve();
-  if (ytApiPromise) return ytApiPromise;
-
-  ytApiPromise = new Promise<void>((resolve) => {
-    const prev = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      prev?.();
-      resolve();
-    };
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    document.head.appendChild(tag);
-  });
-  return ytApiPromise;
+function playableEnd(duration: number) {
+  return Math.max(duration - HERO_VIDEO_END_TRIM_SEC, HERO_VIDEO_START_SEC + 0.5);
 }
 
 /**
- * Full-bleed cinematic background. The YouTube clip plays muted/looping from
- * HERO_VIDEO_START_SEC and is cover-cropped to hide the player chrome. Its
- * playback time drives the card's stepper (see HeroAuthority), so footage and
- * the Global / National / Trusted beats stay in sync. Reduced-motion users get
- * a static poster instead of the moving video.
+ * Full-bleed cinematic background. Local MP4 (same footage as the original
+ * YouTube hero) plays muted/looping with no player chrome. Playback time drives
+ * drives the card stepper (see HeroAuthority). Reduced-motion users get a poster.
  */
 export default function HeroFigmaMedia({ controllerRef, reduceMotion }: HeroFigmaMediaProps) {
-  const hostRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (reduceMotion) return;
 
-    let cancelled = false;
-    let player: any = null;
+    const video = videoRef.current;
+    if (!video) return;
 
-    loadYouTubeApi().then(() => {
-      if (cancelled || !hostRef.current || !window.YT) return;
+    const seekToStart = () => {
+      if (Number.isFinite(video.duration)) {
+        video.currentTime = Math.min(HERO_VIDEO_START_SEC, playableEnd(video.duration));
+      } else {
+        video.currentTime = HERO_VIDEO_START_SEC;
+      }
+    };
 
-      player = new window.YT.Player(hostRef.current, {
-        videoId: HERO_VIDEO_YT_ID,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          start: HERO_VIDEO_START_SEC,
-          modestbranding: 1,
-          rel: 0,
-          playsinline: 1,
-          disablekb: 1,
-          fs: 0,
-          iv_load_policy: 3,
-          origin: window.location.origin,
-        },
-        events: {
-          onReady: (e: any) => {
-            e.target.mute();
-            e.target.playVideo();
-          },
-          onStateChange: (e: any) => {
-            // Loop back to the start offset (the `loop` param would restart at 0).
-            if (e.data === window.YT.PlayerState.ENDED) {
-              e.target.seekTo(HERO_VIDEO_START_SEC, true);
-              e.target.playVideo();
-            }
-          },
-        },
-      });
+    const onLoaded = () => {
+      seekToStart();
+      void video.play().catch(() => {});
+    };
 
-      controllerRef.current = {
-        getCurrentTime: () => player?.getCurrentTime?.() ?? 0,
-        getDuration: () => player?.getDuration?.() ?? 0,
-        seek: (seconds: number) => player?.seekTo?.(seconds, true),
-        play: () => player?.playVideo?.(),
-        pause: () => player?.pauseVideo?.(),
-      };
-    });
+    const onTimeUpdate = () => {
+      const duration = video.duration;
+      if (!duration || Number.isNaN(duration)) return;
+      if (video.currentTime >= playableEnd(duration)) {
+        seekToStart();
+        void video.play().catch(() => {});
+      }
+    };
+
+    controllerRef.current = {
+      getCurrentTime: () => video.currentTime,
+      getDuration: () => video.duration || 0,
+      seek: (seconds: number) => {
+        video.currentTime = seconds;
+      },
+      play: () => {
+        void video.play().catch(() => {});
+      },
+      pause: () => video.pause(),
+    };
+
+    video.addEventListener('loadedmetadata', onLoaded);
+    video.addEventListener('timeupdate', onTimeUpdate);
+
+    if (video.readyState >= 1) onLoaded();
 
     return () => {
-      cancelled = true;
       controllerRef.current = null;
-      try {
-        player?.destroy?.();
-      } catch {
-        /* player may already be gone */
-      }
+      video.removeEventListener('loadedmetadata', onLoaded);
+      video.removeEventListener('timeupdate', onTimeUpdate);
+      video.pause();
     };
   }, [reduceMotion, controllerRef]);
 
@@ -135,12 +106,22 @@ export default function HeroFigmaMedia({ controllerRef, reduceMotion }: HeroFigm
 
   return (
     <div className="hero-figma-media" aria-hidden>
-      <div className="hero-figma-media-inner hero-figma-yt-wrap">
-        <div ref={hostRef} className="hero-figma-yt" />
+      <div className="hero-figma-media-inner hero-figma-video-wrap">
+        <video
+          ref={videoRef}
+          className="hero-figma-video-el hero-figma-video-el--live"
+          muted
+          autoPlay
+          playsInline
+          preload="auto"
+          poster={HERO_SLIDES[0].image}
+          disablePictureInPicture
+          controls={false}
+          tabIndex={-1}
+        >
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+        </video>
       </div>
-      {/* Sits above the player: absorbs clicks so the video can't be paused (the
-          YouTube play/pause button never appears) and carries a light tint that
-          lifts the card text off the footage. */}
       <div className="hero-figma-yt-veil" />
       <div className="hero-figma-media-scrim" />
       <div className="hero-figma-media-grain" />

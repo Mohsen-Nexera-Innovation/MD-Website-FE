@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import EgyptCoverageMap from '@/components/coverage/EgyptCoverageMap';
+import { managerForZoneId } from '@/content/regionalManagers';
 import { REACH_ZONES } from '@/content/reachZones';
 
 type ReachCoverageProps = {
@@ -23,6 +24,7 @@ export default function ReachCoverage({
   onInteractChange,
 }: ReachCoverageProps) {
   const zone = REACH_ZONES[active] ?? REACH_ZONES[0];
+  const zoneManager = managerForZoneId(zone.id);
   const count = REACH_ZONES.length;
   const go = (next: number) => onSelect((next + count) % count);
 
@@ -46,7 +48,7 @@ export default function ReachCoverage({
           </button>
 
           <div className="reach-gallery-main" aria-live="polite">
-            <EgyptCoverageMap highlightZoneId={zone.id} reduced={reduced} />
+            <EgyptCoverageMap highlightZoneId={zone.id} reduced={reduced} surface="light" />
 
             <div className="reach-gallery-card">
               <div key={zone.id} className="reach-gallery-card-inner">
@@ -57,6 +59,14 @@ export default function ReachCoverage({
 
                 <h3 className="reach-gallery-title">{zone.title}</h3>
                 <p className="reach-gallery-blurb">{zone.blurb}</p>
+
+                {zoneManager ? (
+                  <p className="reach-gallery-manager">
+                    <span className="reach-gallery-manager-label">Area manager</span>
+                    <strong>{zoneManager.name}</strong>
+                    {zoneManager.role ? <span>{zoneManager.role}</span> : null}
+                  </p>
+                ) : null}
 
                 <div className="reach-gallery-stat">
                   <strong>{zone.stat}</strong>

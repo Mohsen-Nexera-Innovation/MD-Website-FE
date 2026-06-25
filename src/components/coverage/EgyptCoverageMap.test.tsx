@@ -20,10 +20,10 @@ describe('EgyptCoverageMap', () => {
     await user.click(cairo as Element);
 
     expect(within(container).getByRole('dialog')).toBeInTheDocument();
-    expect(within(container).getByText(/Ahmed Hassan · Area manager/i)).toBeInTheDocument();
-    expect(within(container).getByRole('link', { name: /\+20/i })).toHaveAttribute(
+    expect(within(container).getByText(/Dr\. Islam Yasser/i)).toBeInTheDocument();
+    expect(within(container).getByRole('link', { name: /Email/i })).toHaveAttribute(
       'href',
-      expect.stringContaining('tel:'),
+      expect.stringContaining('mailto:'),
     );
   });
 

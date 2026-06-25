@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import EventDetailView from '@/components/catalog/EventDetailView';
-import { getEventById } from '@/content/events';
+import { EVENTS, getEventById } from '@/content/events';
 
 type Props = { params: Promise<{ id: string }> };
+
+export function generateStaticParams() {
+  return EVENTS.map((event) => ({ id: event.id }));
+}
+
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;

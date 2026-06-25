@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   GLOBE_STOPS,
   GLOBE_TRAVEL_SEC,
@@ -34,6 +34,12 @@ type HeroGlobeJourneyProps = {
    * canvas that blends with whatever sits behind it (e.g. the gallery card).
    */
   variant?: 'backdrop' | 'card';
+  /**
+   * `all` — pole flags on every stop (hero journey).
+   * `active-only` — flag on the active country after the route finishes.
+   */
+  flagMode?: 'all' | 'active-only';
+  flagVariant?: 'pin' | 'pole';
 };
 
 function hasWebGL() {
@@ -57,8 +63,11 @@ export default function HeroGlobeJourney({
   showHud = true,
   zoom = 1,
   variant = 'backdrop',
+  flagMode = 'all',
+  flagVariant = 'pole',
 }: HeroGlobeJourneyProps) {
   const isCard = variant === 'card';
+  const htmlPortal = useRef<HTMLDivElement>(null);
   const controlled = controlledIndex != null;
   const [stopIndex, setStopIndex] = useState(0);
   const [prevStopIndex, setPrevStopIndex] = useState(0);
@@ -160,6 +169,12 @@ export default function HeroGlobeJourney({
     <div className={`hero-globe-bg${isCard ? ' hero-globe-bg--card' : ''}`}>
       {isCard ? null : <HeroAtmosphereFallback />}
 
+      <div
+        ref={htmlPortal}
+        className={`globe-html-layer${isCard ? ' globe-html-layer--card' : ''}`}
+        aria-hidden
+      />
+
       {useGlobe ? (
         <GlobeErrorBoundary
           fallback={null}
@@ -173,6 +188,9 @@ export default function HeroGlobeJourney({
               stops={stops}
               zoom={zoom}
               transparent={isCard}
+              htmlPortal={htmlPortal}
+              flagMode={flagMode}
+              flagVariant={flagVariant}
             />
           </div>
         </GlobeErrorBoundary>

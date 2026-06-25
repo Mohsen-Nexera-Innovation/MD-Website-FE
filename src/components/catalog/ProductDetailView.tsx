@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Arrow from '@/components/journey/Arrow';
@@ -5,6 +8,7 @@ import type { CatalogProduct } from '@/content/products';
 import { getRelatedProducts } from '@/content/products';
 import ProductCard from '@/components/ui/ProductCard';
 import ProductDownload from '@/components/ui/ProductDownload';
+import { getProductShopUrl } from '@/lib/shop';
 
 type ProductDetailViewProps = {
   product: CatalogProduct;
@@ -12,6 +16,8 @@ type ProductDetailViewProps = {
 
 export default function ProductDetailView({ product }: ProductDetailViewProps) {
   const related = getRelatedProducts(product.relatedIds);
+  const [activeImage, setActiveImage] = useState(product.image);
+  const gallery = product.images.length > 0 ? product.images : [product.image];
 
   return (
     <div className="product-detail reveal">
@@ -26,7 +32,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
       <div className="product-detail-hero">
         <div className="product-detail-gallery">
           <Image
-            src={product.image}
+            src={activeImage}
             alt={product.imageAlt}
             width={640}
             height={480}
@@ -34,6 +40,23 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             priority
             sizes="(max-width: 900px) 100vw, 480px"
           />
+          {gallery.length > 1 ? (
+            <div className="product-detail-thumbs" role="list" aria-label="Product images">
+              {gallery.map((src) => (
+                <button
+                  key={src}
+                  type="button"
+                  role="listitem"
+                  className={`product-detail-thumb${src === activeImage ? ' is-active' : ''}`}
+                  onClick={() => setActiveImage(src)}
+                  aria-label={`View ${product.name} image`}
+                  aria-current={src === activeImage ? 'true' : undefined}
+                >
+                  <Image src={src} alt="" width={72} height={72} className="product-detail-thumb-img" />
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="product-detail-intro">
           <Link href={`/partners/${product.brandSlug}`} className="product-detail-brand">
@@ -49,12 +72,14 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             <strong>Key spec:</strong> {product.keySpec}
           </p>
           <div className="product-detail-actions">
-            <Link href="/register" className="md-btn md-btn-primary">
-              Register to order <Arrow />
-            </Link>
-            <button type="button" className="md-btn md-btn-disabled" title="Shop launches in Release 2">
-              Buy on MD Shop
-            </button>
+            <a
+              href={getProductShopUrl(product.id)}
+              className="md-btn md-btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Shop now <Arrow />
+            </a>
           </div>
         </div>
       </div>

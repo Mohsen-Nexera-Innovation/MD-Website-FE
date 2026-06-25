@@ -19,7 +19,6 @@ export default function ArticlesPage() {
           eyebrow={ARTICLES_INTRO.eyebrow}
           title={ARTICLES_INTRO.title}
           lead={ARTICLES_INTRO.lead}
-          journeyFrom="promise"
         />
 
         <Suspense fallback={<p className="catalog-loading">Loading articles…</p>}>

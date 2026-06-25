@@ -11,11 +11,14 @@ import {
 import {
   buildCatalogQuery,
   CATALOG_PAGE_SIZE,
+  countProductsBySpecialty,
   filterProducts,
+  hasActiveCatalogFilters,
   paginate,
   parseCatalogParams,
   type CatalogSort,
 } from '@/lib/catalog';
+import { SHOP_BASE_URL } from '@/lib/shop';
 import EmptyState from '@/components/ui/EmptyState';
 import FilterChips from '@/components/ui/FilterChips';
 import Pagination from '@/components/ui/Pagination';
@@ -35,6 +38,7 @@ export default function ProductsCatalog() {
   }, [searchParams]);
 
   const filters = parseCatalogParams(rawParams);
+  const specialtyCounts = useMemo(() => countProductsBySpecialty(CATALOG_PRODUCTS), []);
 
   const updateFilters = useCallback(
     (next: Partial<typeof filters>) => {
@@ -89,6 +93,10 @@ export default function ProductsCatalog() {
     updateFilters({ specialties: next.length ? next : undefined });
   }
 
+  function selectSpecialtyOnly(slug: DentalSpecialtySlug | null) {
+    updateFilters({ specialties: slug ? [slug] : undefined });
+  }
+
   function toggleBrand(slug: string) {
     const current = filters.brands ?? [];
     const next = current.includes(slug) ? current.filter((b) => b !== slug) : [...current, slug];
@@ -98,6 +106,9 @@ export default function ProductsCatalog() {
   function clearAll() {
     router.push('/products', { scroll: false });
   }
+
+  const activeSpecialty =
+    filters.specialties?.length === 1 ? filters.specialties[0] : null;
 
   return (
     <div className="catalog-layout reveal">
@@ -120,18 +131,23 @@ export default function ProductsCatalog() {
         <div className="catalog-filter-group">
           <h3>Specialty</h3>
           <ul className="catalog-filter-list">
-            {DENTAL_SPECIALTIES.map((s) => (
-              <li key={s.slug}>
-                <label className="catalog-filter-check">
-                  <input
-                    type="checkbox"
-                    checked={filters.specialties?.includes(s.slug) ?? false}
-                    onChange={() => toggleSpecialty(s.slug)}
-                  />
-                  <span>{s.label}</span>
-                </label>
-              </li>
-            ))}
+            {DENTAL_SPECIALTIES.map((s) => {
+              const count = specialtyCounts[s.slug] ?? 0;
+              if (count === 0) return null;
+              return (
+                <li key={s.slug}>
+                  <label className="catalog-filter-check">
+                    <input
+                      type="checkbox"
+                      checked={filters.specialties?.includes(s.slug) ?? false}
+                      onChange={() => toggleSpecialty(s.slug)}
+                    />
+                    <span>{s.label}</span>
+                    <span className="catalog-filter-count">{count}</span>
+                  </label>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -152,9 +168,68 @@ export default function ProductsCatalog() {
             ))}
           </ul>
         </div>
+
+        <div className="catalog-sidebar-promo">
+          <p>Found what you need? Order authentic stock with nationwide delivery from MD shop.</p>
+          <a
+            href={SHOP_BASE_URL}
+            className="md-btn md-btn-primary md-btn-sm catalog-sidebar-shop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Shop with MD
+          </a>
+        </div>
       </aside>
 
       <div className="catalog-main">
+        <nav className="catalog-specialty-nav" aria-label="Browse by specialty">
+          <button
+            type="button"
+            className={`catalog-specialty-pill${!filters.specialties?.length ? ' is-active' : ''}`}
+            onClick={() => selectSpecialtyOnly(null)}
+          >
+            All
+            <span className="catalog-specialty-count">{CATALOG_PRODUCTS.length}</span>
+          </button>
+          {DENTAL_SPECIALTIES.map((s) => {
+            const count = specialtyCounts[s.slug] ?? 0;
+            if (count === 0) return null;
+            const isActive = activeSpecialty === s.slug;
+            return (
+              <button
+                key={s.slug}
+                type="button"
+                className={`catalog-specialty-pill${isActive ? ' is-active' : ''}`}
+                onClick={() => selectSpecialtyOnly(s.slug)}
+                aria-pressed={isActive}
+              >
+                {s.label}
+                <span className="catalog-specialty-count">{count}</span>
+              </button>
+            );
+          })}
+        </nav>
+
+        <div className="catalog-shop-band">
+          <div className="catalog-shop-band-copy">
+            <strong>Order from MD shop</strong>
+            <p>
+              {hasActiveCatalogFilters(filters)
+                ? `${total} SKU${total === 1 ? '' : 's'} match your filters — open shop to buy authentic stock with Bosta delivery across Egypt.`
+                : 'Every product in this catalog is available through shop.mddental.com — CE-certified, factory-direct, delivered nationwide.'}
+            </p>
+          </div>
+          <a
+            href={SHOP_BASE_URL}
+            className="md-btn md-btn-primary catalog-shop-band-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Shop now
+          </a>
+        </div>
+
         <div className="catalog-toolbar">
           <button
             type="button"
@@ -192,6 +267,15 @@ export default function ProductsCatalog() {
 
         <p className="catalog-result-count">
           {total} product{total === 1 ? '' : 's'}
+          {filters.specialties?.length ? (
+            <>
+              {' '}
+              in{' '}
+              {filters.specialties
+                .map((slug) => DENTAL_SPECIALTIES.find((s) => s.slug === slug)?.label ?? slug)
+                .join(', ')}
+            </>
+          ) : null}
         </p>
 
         {items.length === 0 ? (

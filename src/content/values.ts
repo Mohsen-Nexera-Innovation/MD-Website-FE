@@ -1,4 +1,4 @@
-/** Vision, Mission & Core Values — homepage "Who We Are" section. */
+/** Vision, Mission & Core Values — About MD "Who We Are" section. */
 
 export const VISION_MISSION_INTRO = {
   eyebrow: 'Who We Are',

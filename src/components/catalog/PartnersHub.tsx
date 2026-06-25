@@ -1,6 +1,7 @@
 import PartnerSlider from '@/components/catalog/PartnerSlider';
 import GlobalPartnerSlide from '@/components/ui/GlobalPartnerSlide';
 import LocalPartnerSlide from '@/components/ui/LocalPartnerSlide';
+import PartnerBrandLogo from '@/components/ui/PartnerBrandLogo';
 import {
   GLOBAL_PARTNERS_SECTION,
   LOCAL_PARTNERS_SECTION,
@@ -15,6 +16,16 @@ export default function PartnersHub() {
         <h2 id="global-partners-title" className="partners-hub-title partners-hub-title--compact">
           {GLOBAL_PARTNERS_SECTION.title}
         </h2>
+        <div className="partners-logo-strip reveal" aria-label="Global partner brand logos">
+          {PARTNER_BRANDS.map((partner) => (
+            <PartnerBrandLogo
+              key={partner.slug}
+              slug={partner.slug}
+              name={partner.name}
+              className="partners-logo-strip-item"
+            />
+          ))}
+        </div>
         <PartnerSlider label="Global manufacturer partners">
           {PARTNER_BRANDS.map((partner, index) => (
             <GlobalPartnerSlide key={partner.slug} partner={partner} />

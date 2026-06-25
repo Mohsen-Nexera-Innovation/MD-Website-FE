@@ -59,6 +59,7 @@ export const PATH_VALUE_CARDS: readonly PathValueCard[] = [
   },
 ];
 
+/** @deprecated use UNIVERSITY_PARTNERS from `@/content/universities` */
 export const ACADEMIC_PARTNERS_HEADING = 'Trusted by Academic Partner';
 export const ACADEMIC_PARTNERS_LEAD =
   'Egypt’s leading dental faculties and teaching hospitals choose MD Dental for authentic supplies and clinical education.';
@@ -81,7 +82,7 @@ export const ACADEMIC_PARTNERS: readonly string[] = [
   'New Giza University',
 ];
 
-export const DENTAL_ACADEMIES_HEADING = 'Supporting Dental Academies';
+export const DENTAL_ACADEMIES_HEADING = 'Continuous Dental Academies';
 export const DENTAL_ACADEMIES_LEAD =
   'Official training partners and professional bodies we support nationwide.';
 

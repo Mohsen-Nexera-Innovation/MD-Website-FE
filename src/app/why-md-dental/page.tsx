@@ -18,7 +18,6 @@ export default function WhyMdDentalPage() {
           eyebrow={WHY_MD_INTRO.eyebrow}
           title={WHY_MD_INTRO.title}
           lead={WHY_MD_INTRO.lead}
-          journeyFrom="promise"
         />
         <WhyMdDentalView />
       </div>

@@ -198,10 +198,13 @@ export default function HeroAuthority() {
 
                 <h1 id="authority-title" className="hero-figma-title">
                   <span className="hero-figma-tagline">{HERO.headlineLead}</span>
-                  <Typewriter
-                    phrases={[...HERO.headlineTyped]}
-                    className="hero-figma-typed"
-                  />
+                  <span className="hero-figma-typed-line">
+                    <Typewriter
+                      phrases={[HERO.headlineSub]}
+                      className="hero-figma-typed"
+                      loop={false}
+                    />
+                  </span>
                 </h1>
 
                 <p className="hero-figma-lead">{HERO.lead}</p>

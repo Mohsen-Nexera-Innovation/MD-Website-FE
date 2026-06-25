@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import MdLogo from '@/components/MdLogo';
 import { MANUFACTURERS } from '@/content/home';
+import { getBrandLogo } from '@/content/mdMedia';
 
 /** Global partner orbit — large ring, chips stay horizontal while rotating. */
 export default function PartnerOrbit() {
@@ -34,7 +36,18 @@ export default function PartnerOrbit() {
               }}
             >
               <Link href={`/partners/${m.slug}`} className="partner-chip">
-                <span className="partner-chip-name">{m.name}</span>
+                {getBrandLogo(m.slug) ? (
+                  <Image
+                    src={getBrandLogo(m.slug)!}
+                    alt={`${m.name} logo`}
+                    width={96}
+                    height={28}
+                    className="partner-chip-logo"
+                    sizes="96px"
+                  />
+                ) : (
+                  <span className="partner-chip-name">{m.name}</span>
+                )}
                 <small>{m.country}</small>
               </Link>
             </div>

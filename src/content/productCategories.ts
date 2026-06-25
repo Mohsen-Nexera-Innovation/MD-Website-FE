@@ -1,5 +1,7 @@
 /** Product categories — homepage "Our Products" discovery grid. */
 
+import { getMdProductImage } from '@/content/mdMedia';
+
 export const PRODUCT_INTRO = {
   eyebrow: 'Our Products',
   heading: 'Authentic products across every specialty',
@@ -11,71 +13,67 @@ export type ProductCategory = {
   blurb: string;
   count: string;
   href: string;
-  /** Representative SKUs from MD Dental partner brands */
   featured: string;
   image: string;
   imageAlt: string;
 };
 
+const categoryImage = (brandSlug: string, file: string, fallback: string) =>
+  getMdProductImage(brandSlug, file) ?? fallback;
+
 export const PRODUCT_CATEGORIES: readonly ProductCategory[] = [
   {
     name: 'Restorative',
-    blurb: 'Composites, bonding systems, zirconia discs and finishing materials.',
+    blurb: 'Composites, bonding systems, cements and finishing materials.',
     count: '120+ SKUs',
-    href: '/products',
-    featured: 'BMS Composite · Heydent Zirconia',
-    image: '/products/cat-restorative.png',
-    imageAlt:
-      'BMS composite syringes in shade guides, Heydent zirconia milling disc, bonding agents and polishing wheels on a dental tray',
+    href: '/products?specialty=RESTORATIVE',
+    featured: 'BMS FILLBEST · Heydent Hey-TEC',
+    image: categoryImage('bms', 'FILLBEST.JPG', '/products/cat-restorative.png'),
+    imageAlt: 'BMS FILLBEST composite and Heydent restorative materials',
   },
   {
     name: 'Endodontics',
-    blurb: 'Rotary files, sealers and obturation systems for predictable treatment.',
+    blurb: 'Rotary files, spreaders and obturation systems for predictable treatment.',
     count: '60+ SKUs',
-    href: '/products',
-    featured: 'SIN Rotary File Sets',
-    image: '/products/cat-endodontics.png',
-    imageAlt:
-      'SIN nickel-titanium rotary endodontic files in color-coded sequence with file organizer block',
+    href: '/products?specialty=ENDODONTICS',
+    featured: 'PROFA T-Blue · Eli-Gold',
+    image: categoryImage('profa', 'T-blue 30.4.png', '/products/cat-endodontics.png'),
+    imageAlt: 'PROFA T-Blue rotary endodontic files',
   },
   {
     name: 'Orthodontics & Implants',
-    blurb: 'Bracket systems, wires and implant lines from advanced manufacturers.',
+    blurb: 'Bracket systems, archwires and orthodontic accessories.',
     count: '90+ SKUs',
-    href: '/products',
-    featured: 'Aditek Brackets · Implant Lines',
-    image: '/products/cat-ortho-implants.png',
-    imageAlt:
-      'Aditek orthodontic metal brackets on a bracket card, archwires and elastics beside a dental implant fixture',
+    href: '/products?specialty=ORTHODONTICS',
+    featured: 'Aditek EasyClip+ · Safira',
+    image: categoryImage('aditek', 'EasyClip+.JPG', '/products/cat-ortho-implants.png'),
+    imageAlt: 'Aditek EasyClip+ orthodontic bracket system',
   },
   {
     name: 'Prosthodontics',
-    blurb: 'Impression materials, prosthetic components and lab solutions.',
+    blurb: 'Temporary cements, core build-up and lab consumables.',
     count: '70+ SKUs',
-    href: '/products',
-    featured: 'Centrix Impression Materials',
-    image: '/products/cat-prosthodontics.png',
-    imageAlt:
-      'Centrix impression material cartridge gun, silicone putty in impression tray and prosthetic denture teeth',
+    href: '/products?specialty=IMPRESSIONS',
+    featured: 'Centrix SuperCure · NoMix',
+    image: categoryImage('centrix', 'SuperCure Original.png', '/products/cat-prosthodontics.png'),
+    imageAlt: 'Centrix SuperCure core buildup material',
   },
   {
-    name: 'Infection Control',
-    blurb: 'Sterilization pouches, gloves and protective consumables you can trust.',
+    name: 'Preventive',
+    blurb: 'Fluoride varnish, caries indicators and preventive solutions.',
     count: '50+ SKUs',
-    href: '/products',
-    featured: 'PROFA Endo Files · TopGlove',
-    image: '/products/cat-infection-control.png',
-    imageAlt:
-      'PROFA nickel-titanium endodontic files beside TopGlove nitrile exam gloves and sterilization pouches',
+    href: '/products?specialty=PREVENTIVE',
+    featured: 'Centrix FluoroDose · Expose',
+    image: categoryImage('centrix', 'Fluorodose.png', '/products/cat-infection-control.png'),
+    imageAlt: 'Centrix FluoroDose preventive varnish',
   },
   {
-    name: 'Equipment & Instruments',
-    blurb: 'Hand instruments and clinic equipment built for daily reliability.',
-    count: '110+ SKUs',
-    href: '/products',
-    featured: 'WBT Orthodontic Systems',
-    image: '/products/cat-equipment.png',
-    imageAlt:
-      'WBT orthodontic bracket and archwire kit with ligatures and placement tools in a sterilization tray',
+    name: 'Aesthetics & Bleaching',
+    blurb: 'Composites, bleaching and veneer cements from Heydent.',
+    count: '40+ SKUs',
+    href: '/products?brand=heydent',
+    featured: 'Heydent Cem Veneer · JW NEXT',
+    image: categoryImage('heydent', 'Cem Veneer.jpg', '/products/cat-equipment.png'),
+    imageAlt: 'Heydent aesthetic and bleaching products',
   },
 ];
