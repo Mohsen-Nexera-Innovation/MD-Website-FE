@@ -18,7 +18,6 @@ export default function EventsPage() {
           eyebrow={EVENTS_INTRO.eyebrow}
           title={EVENTS_INTRO.title}
           lead={EVENTS_INTRO.lead}
-          journeyFrom="promise"
         />
         <EventsCatalog />
       </div>

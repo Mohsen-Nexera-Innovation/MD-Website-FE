@@ -62,7 +62,10 @@ export default function CityCoveragePopover({
             {city.name}
           </h4>
           {hasRep ? (
-            <p className="coverage-popover-role">{city.manager!.name} · Area manager</p>
+            <p className="coverage-popover-role">
+              {city.manager!.name}
+              {city.manager!.role ? ` · ${city.manager!.role}` : ' · Area manager'}
+            </p>
           ) : (
             <p className="coverage-popover-role">Delivered via Bosta nationwide</p>
           )}
@@ -71,21 +74,21 @@ export default function CityCoveragePopover({
 
       {hasRep ? (
         <div className="coverage-popover-actions">
-          <a
-            href={`tel:${city.manager!.phone.replace(/\s/g, '')}`}
-            className="coverage-popover-btn coverage-popover-btn--call"
-          >
-            <span className="coverage-popover-btn-label">Call</span>
-            <span className="coverage-popover-btn-value">{formatPhoneDisplay(city.manager!.phone)}</span>
-          </a>
-          {city.manager!.email ? (
+          {city.manager!.phone ? (
             <a
-              href={`mailto:${city.manager!.email}`}
-              className="coverage-popover-btn coverage-popover-btn--email"
+              href={`tel:${city.manager!.phone.replace(/\s/g, '')}`}
+              className="coverage-popover-btn coverage-popover-btn--call"
             >
-              Email {city.manager!.name.split(' ')[0]}
+              <span className="coverage-popover-btn-label">Call</span>
+              <span className="coverage-popover-btn-value">{formatPhoneDisplay(city.manager!.phone)}</span>
             </a>
           ) : null}
+          <a
+            href={`mailto:${city.manager!.email ?? HUB_CONTACT.email}`}
+            className="coverage-popover-btn coverage-popover-btn--email"
+          >
+            Email {city.manager!.name.replace(/^Dr\.\s|^Eng\.\s|^Mr\.\s/i, '').split(' ')[0]}
+          </a>
         </div>
       ) : (
         <div className="coverage-popover-ecom-wrap">
@@ -97,7 +100,9 @@ export default function CityCoveragePopover({
             className="coverage-popover-btn coverage-popover-btn--call"
           >
             <span className="coverage-popover-btn-label">Cairo hub</span>
-            <span className="coverage-popover-btn-value">{formatPhoneDisplay(HUB_CONTACT.phone)}</span>
+            <span className="coverage-popover-btn-value">
+              {HUB_CONTACT.phone ? formatPhoneDisplay(HUB_CONTACT.phone) : HUB_CONTACT.email}
+            </span>
           </a>
         </div>
       )}

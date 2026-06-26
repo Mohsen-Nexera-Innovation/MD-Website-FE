@@ -1,4 +1,5 @@
 import type { CatalogProduct, DentalSpecialtySlug } from '@/content/products';
+import { DENTAL_SPECIALTIES } from '@/content/products.types';
 
 export type CatalogSort = 'relevance' | 'newest' | 'alpha';
 
@@ -103,4 +104,31 @@ export function buildCatalogQuery(filters: CatalogFilters): string {
   if (filters.page && filters.page > 1) params.set('page', String(filters.page));
   const s = params.toString();
   return s ? `?${s}` : '';
+}
+
+export function hasActiveCatalogFilters(filters: CatalogFilters): boolean {
+  return Boolean(
+    filters.search ||
+      filters.specialties?.length ||
+      filters.brands?.length ||
+      (filters.sort && filters.sort !== 'newest'),
+  );
+}
+
+export function countProductsBySpecialty(
+  products: readonly CatalogProduct[],
+): Record<DentalSpecialtySlug, number> {
+  const counts = Object.fromEntries(
+    DENTAL_SPECIALTIES.map((s) => [s.slug, 0]),
+  ) as Record<DentalSpecialtySlug, number>;
+
+  for (const product of products) {
+    counts[product.specialtySlug] += 1;
+  }
+
+  return counts;
+}
+
+export function getSpecialtyCatalogUrl(slug: DentalSpecialtySlug): string {
+  return `/products${buildCatalogQuery({ specialties: [slug] })}`;
 }

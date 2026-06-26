@@ -4,13 +4,11 @@ import {
   ABOUT_HERO_IMAGE,
   ABOUT_LEAD_PARAGRAPH,
   ABOUT_METRICS,
-  ABOUT_MISSION,
   ABOUT_STORY,
   ABOUT_TAGLINE,
-  ABOUT_VALUES,
-  ABOUT_VISION,
 } from '@/content/about';
 import Arrow from '@/components/journey/Arrow';
+import VisionValues from '@/components/journey/VisionValues';
 
 export default function AboutView() {
   return (
@@ -80,58 +78,7 @@ export default function AboutView() {
         </div>
       </section>
 
-      <section className="about-pillars">
-        <div className="about-pillar about-pillar--vision">
-          <Image
-            src={ABOUT_VISION.image}
-            alt={ABOUT_VISION.imageAlt}
-            width={600}
-            height={360}
-            className="about-pillar-img"
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-          <div className="about-pillar-body">
-            <span className="eyebrow">{ABOUT_VISION.label}</span>
-            <p>{ABOUT_VISION.statement}</p>
-          </div>
-        </div>
-        <div className="about-pillar about-pillar--mission">
-          <Image
-            src={ABOUT_MISSION.image}
-            alt={ABOUT_MISSION.imageAlt}
-            width={600}
-            height={360}
-            className="about-pillar-img"
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-          <div className="about-pillar-body about-pillar-body--dark">
-            <span className="eyebrow">{ABOUT_MISSION.label}</span>
-            <p>{ABOUT_MISSION.statement}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="about-values">
-        <h2>Core values</h2>
-        <div className="about-values-grid">
-          {ABOUT_VALUES.map((v) => (
-            <article key={v.title} className="about-value-card">
-              <div className="about-value-media">
-                <Image
-                  src={v.image}
-                  alt={v.imageAlt}
-                  width={400}
-                  height={240}
-                  className="about-value-img"
-                  sizes="(max-width: 560px) 100vw, 280px"
-                />
-              </div>
-              <h3>{v.title}</h3>
-              <p>{v.desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <VisionValues embedded />
 
       <section className="catalog-cta-band about-cta">
         <h2>Explore our partner network</h2>

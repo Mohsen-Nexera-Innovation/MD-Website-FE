@@ -1,5 +1,7 @@
 /** Figma homepage — Our Products tabs + grid (node 115-500). */
 
+import { getProductById } from '@/content/products';
+
 export const PRODUCT_GRID_INTRO = {
   eyebrow: 'Our Products',
   heading: 'Our Products',
@@ -27,36 +29,40 @@ export type GridProduct = {
   href: string;
 };
 
+function catalogImage(id: string, fallback: string): string {
+  return getProductById(id)?.image ?? fallback;
+}
+
 export const GRID_PRODUCTS: readonly GridProduct[] = [
   {
     id: 'bms-composite-kit',
-    name: 'BMS Composite Kit',
+    name: 'BMS FILLBEST Composite',
     brand: 'BMS',
     blurb: 'Shade-stable restorative composites for daily anterior and posterior work.',
     tab: 'cosmetic',
-    image: '/products/cat-restorative.png',
-    imageAlt: 'BMS composite syringes and shade guide',
+    image: catalogImage('bms-composite-kit', '/products/cat-restorative.png'),
+    imageAlt: 'BMS FILLBEST composite syringes',
     href: '/products/bms-composite-kit',
   },
   {
     id: 'heydent-zirconia-disc',
-    name: 'Heydent Zirconia Disc',
+    name: 'Heydent Hey-TEC Universal',
     brand: 'Heydent',
-    blurb: 'High-strength zirconia blanks for aesthetic monolithic restorations.',
+    blurb: 'Universal composite system for direct aesthetic restorations.',
     tab: 'cosmetic',
-    image: '/products/cat-restorative.png',
-    imageAlt: 'Heydent zirconia milling disc',
+    image: catalogImage('heydent-zirconia-disc', '/products/cat-restorative.png'),
+    imageAlt: 'Heydent Hey-TEC Universal composite',
     href: '/products/heydent-zirconia-disc',
   },
   {
-    id: 'centrix-impression',
-    name: 'Centrix Impression Material',
+    id: 'centrix-temp-crown',
+    name: 'Centrix SuperCure Original',
     brand: 'Centrix',
-    blurb: 'Precise VPS impressions for crown, bridge, and implant prosthetics.',
+    blurb: 'Dual-cure core build-up for crown and bridge preparations.',
     tab: 'surgical',
-    image: '/products/cat-prosthodontics.png',
-    imageAlt: 'Centrix impression cartridge and tray',
-    href: '/products/centrix-impression',
+    image: catalogImage('centrix-temp-crown', '/products/cat-prosthodontics.png'),
+    imageAlt: 'Centrix SuperCure core buildup material',
+    href: '/products/centrix-temp-crown',
   },
   {
     id: 'sin-endo-file-set',
@@ -64,18 +70,18 @@ export const GRID_PRODUCTS: readonly GridProduct[] = [
     brand: 'SIN',
     blurb: 'Nickel-titanium rotary files for predictable canal shaping.',
     tab: 'endodontic',
-    image: '/products/cat-endodontics.png',
+    image: catalogImage('sin-endo-file-set', '/products/cat-endodontics.png'),
     imageAlt: 'SIN endodontic rotary file sequence',
     href: '/products/sin-endo-file-set',
   },
   {
     id: 'aditek-bracket-system',
-    name: 'Aditek Bracket System',
+    name: 'Aditek EasyClip+',
     brand: 'Aditek',
     blurb: 'Low-profile brackets and archwires for efficient orthodontic treatment.',
     tab: 'implant',
-    image: '/products/cat-ortho-implants.png',
-    imageAlt: 'Aditek orthodontic bracket system',
+    image: catalogImage('aditek-bracket-system', '/products/cat-ortho-implants.png'),
+    imageAlt: 'Aditek EasyClip+ orthodontic bracket system',
     href: '/products/aditek-bracket-system',
   },
   {
@@ -84,18 +90,18 @@ export const GRID_PRODUCTS: readonly GridProduct[] = [
     brand: 'WBT',
     blurb: 'Complete bracket, wire, and ligature kits for chairside efficiency.',
     tab: 'implant',
-    image: '/products/cat-equipment.png',
+    image: catalogImage('wbt-ortho-system', '/products/cat-equipment.png'),
     imageAlt: 'WBT orthodontic instruments and brackets',
     href: '/products/wbt-ortho-system',
   },
   {
     id: 'profa-sterilization-pouch',
-    name: 'PROFA Sterilization Pouch',
+    name: 'PROFA T-Blue Files',
     brand: 'PROFA',
-    blurb: 'Medical-grade sterilization pouches for instrument reprocessing.',
+    blurb: 'Heat-treated NiTi rotary files for endodontic shaping.',
     tab: 'equipment',
-    image: '/products/cat-infection-control.png',
-    imageAlt: 'PROFA sterilization pouches and gloves',
+    image: catalogImage('profa-sterilization-pouch', '/products/cat-infection-control.png'),
+    imageAlt: 'PROFA T-Blue endodontic rotary files',
     href: '/products/profa-sterilization-pouch',
   },
   {
@@ -104,7 +110,7 @@ export const GRID_PRODUCTS: readonly GridProduct[] = [
     brand: 'TopGlove',
     blurb: 'Powder-free nitrile gloves for infection control in every procedure.',
     tab: 'materials',
-    image: '/products/cat-infection-control.png',
+    image: catalogImage('topglove-exam-gloves', '/products/cat-infection-control.png'),
     imageAlt: 'TopGlove nitrile examination gloves',
     href: '/products/topglove-exam-gloves',
   },

@@ -1,9 +1,7 @@
 /** Global manufacturer partners — hub + detail (SRS CONTENT-008/009). */
 
-import {
-  ACADEMIC_PARTNERS,
-  DENTAL_ACADEMIES,
-} from '@/content/pathCards';
+import { DENTAL_ACADEMIES } from '@/content/pathCards';
+import { ACADEMY_PARTNERS, UNIVERSITY_PARTNERS } from '@/content/universities';
 import type { FlagCode } from '@/content/flagArt';
 import { MANUFACTURERS } from '@/content/home';
 import { PARTNER_STOPS } from '@/content/partnerStops';
@@ -178,37 +176,25 @@ export const PARTNER_BRANDS: readonly PartnerBrand[] = MANUFACTURERS.map((m) => 
   ...partnerData[m.slug],
 }));
 
-const UNIVERSITY_CITIES: Record<string, string> = {
-  'Cairo University': 'Cairo',
-  'Ain Shams University': 'Cairo',
-  'Al-Azhar University': 'Cairo',
-  'Alexandria University': 'Alexandria',
-  'Tanta University': 'Tanta',
-  'Assiut University': 'Assiut',
-  'Mansoura University': 'Mansoura',
-  MUST: 'Cairo',
-  'MSA University': 'Cairo',
-  'Future University': 'Cairo',
-  'British University': 'Cairo',
-  'Al Salam University': 'Cairo',
-  'BADR University': 'Cairo',
-  'Delta University': 'Mansoura',
-  'New Giza University': 'Giza',
-};
-
 export const LOCAL_PARTNERS: readonly LocalPartner[] = [
-  ...ACADEMIC_PARTNERS.map((name) => ({
-    id: `uni-${name.toLowerCase().replace(/\s+/g, '-')}`,
-    name,
+  ...UNIVERSITY_PARTNERS.map((uni) => ({
+    id: uni.id,
+    name: uni.name,
     type: 'university' as const,
-    city: UNIVERSITY_CITIES[name],
-    excerpt: 'Teaching hospital and dental faculty partner for authentic clinical supplies.',
+    city: uni.city,
+    excerpt:
+      uni.brands.length > 0
+        ? `Supplied brands: ${uni.brands.map((b) => b.label).join(', ')}.`
+        : 'Teaching hospital and dental faculty partner for authentic clinical supplies.',
   })),
-  ...DENTAL_ACADEMIES.map((name) => ({
-    id: `acad-${name.toLowerCase().replace(/\s+/g, '-')}`,
-    name,
+  ...ACADEMY_PARTNERS.map((acad) => ({
+    id: acad.id,
+    name: acad.name,
     type: 'academy' as const,
-    excerpt: 'Official training partner for continuing education and professional development.',
+    excerpt:
+      acad.brands.length > 0
+        ? `Training supply brands: ${acad.brands.map((b) => b.label).join(', ')}.`
+        : 'Official training partner for continuing education and professional development.',
   })),
 ];
 

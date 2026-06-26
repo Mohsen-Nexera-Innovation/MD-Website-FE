@@ -82,9 +82,9 @@ export default function Typewriter({
   return (
     <span className={className}>
       {text}
-      <span className={`typewriter-caret${reduced ? ' is-static' : ''}`} aria-hidden>
-        |
-      </span>
+      {text.length > 0 ? (
+        <span className={`typewriter-caret${reduced ? ' is-static' : ''}`} aria-hidden />
+      ) : null}
     </span>
   );
 }

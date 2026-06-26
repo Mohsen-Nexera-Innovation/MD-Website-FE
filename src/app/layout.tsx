@@ -5,6 +5,8 @@ import Header from '@/components/Header';
 import HeroLogoDock from '@/components/HeroLogoDock';
 import Footer from '@/components/Footer';
 import MdMotion from '@/components/MdMotion';
+import WhatsAppFab from '@/components/WhatsAppFab';
+import { SiteSearchProvider } from '@/components/SiteSearchProvider';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -41,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <body className={`${plusJakarta.variable} ${notoArabic.variable} antialiased`}>
+        <SiteSearchProvider>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:shadow"
@@ -51,7 +54,9 @@ export default function RootLayout({
         <HeroLogoDock />
         <main id="main-content">{children}</main>
         <Footer />
+        <WhatsAppFab />
         <MdMotion />
+        </SiteSearchProvider>
       </body>
     </html>
   );

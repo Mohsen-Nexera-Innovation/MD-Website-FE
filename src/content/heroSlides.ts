@@ -1,8 +1,9 @@
 /** Legacy Figma hero — three full-bleed slides (Global → National → Trusted). */
 export const HERO_SLIDE_MS = 5500;
 
-/** Full-bleed hero background video — YouTube source, played via the IFrame API. */
+/** Full-bleed hero background video — local copy of YouTube X9J2ea8iNnM (no iframe chrome). */
 export const HERO_VIDEO_YT_ID = 'X9J2ea8iNnM';
+export const HERO_VIDEO_SRC = '/hero/hero-cinematic.mp4';
 
 /**
  * Playback starts (and loops back to) this offset, in seconds, skipping the

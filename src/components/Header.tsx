@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { NAV_LINKS } from '@/content/nav';
 import MdLogo from '@/components/MdLogo';
 import SocialIcons from '@/components/SocialIcons';
+import { SiteSearchTrigger } from '@/components/SiteSearchProvider';
 
 function navIsActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
@@ -66,6 +67,7 @@ export default function Header() {
         </nav>
 
         <div className="md-header-actions">
+          <SiteSearchTrigger />
           <SocialIcons className="header-socials" linkClassName="header-social" />
           <button type="button" className="md-btn md-btn-ghost md-btn-sm md-lang-btn" aria-label="Switch to Arabic">
             العربية
@@ -126,6 +128,7 @@ export default function Header() {
           ))}
         </ul>
         <div className="md-nav-drawer-actions">
+          <SiteSearchTrigger className="md-search-trigger md-search-trigger--drawer" showLabel />
           <Link href="/login" className="md-btn md-btn-ghost md-btn-full" onClick={closeMenu}>
             Login
           </Link>

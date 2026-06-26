@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Html, Line, Stars, useTexture } from '@react-three/drei';
+import { Line, Stars, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import {
   EGYPT_GOVERNORATES,
@@ -21,7 +21,8 @@ import {
   rotationForLatLon,
   type GlobeStop,
 } from '@/content/heroGlobeStops';
-import GlobeFlagMarker from '@/components/journey/GlobeFlagMarker';
+import GlobeFlagHtmlPin from '@/components/journey/GlobeFlagHtmlPin';
+import GlobeSurfaceFlag from '@/components/journey/GlobeSurfaceFlag';
 import {
   GLOBE_TEXTURE_URLS,
   globeSegmentsForZoom,
@@ -42,22 +43,36 @@ type HeroGlobeCanvasProps = {
   stopIndex: number;
   prevStopIndex: number;
   paused: boolean;
-  portalEl?: HTMLDivElement | null;
+  htmlPortal?: React.RefObject<HTMLElement | null>;
   stops?: readonly GlobeStop[];
   zoom?: number;
   /** Drop the star field so the Earth floats on a transparent canvas. */
   transparent?: boolean;
+  flagMode?: 'all' | 'active-only';
+  flagVariant?: 'pin' | 'pole';
 };
 
 type GlobeSceneProps = {
   stopIndex: number;
   prevStopIndex: number;
   paused: boolean;
-  portalEl?: HTMLDivElement | null;
+  htmlPortal?: React.RefObject<HTMLElement | null>;
   stops: readonly GlobeStop[];
   zoom: number;
   egyptFocusRef: React.RefObject<boolean>;
+  flagMode: 'all' | 'active-only';
+  flagVariant: 'pin' | 'pole';
 };
+
+function shouldShowFlag(
+  active: boolean,
+  routeArrived: boolean,
+  flagMode: 'all' | 'active-only',
+  egyptTravelFocus: boolean,
+) {
+  if (flagMode === 'active-only') return active && routeArrived;
+  return active || !egyptTravelFocus;
+}
 
 function CameraRig({
   stopIndex,
@@ -325,8 +340,11 @@ function LocationMarker({
   travelingRef,
   phase,
   index,
-  portalEl,
+  htmlPortal,
   egyptTravelFocus,
+  flagMode,
+  flagVariant,
+  routeArrived,
 }: {
   name: string;
   flag: GlobeStop['flag'];
@@ -335,8 +353,11 @@ function LocationMarker({
   travelingRef: React.RefObject<boolean>;
   phase: 'global' | 'egypt';
   index: number;
-  portalEl: HTMLDivElement | null;
+  htmlPortal?: React.RefObject<HTMLElement | null>;
   egyptTravelFocus: boolean;
+  flagMode: 'all' | 'active-only';
+  flagVariant: 'pin' | 'pole';
+  routeArrived: boolean;
 }) {
   const orient = useMemo(() => {
     const q = new THREE.Quaternion();
@@ -344,34 +365,25 @@ function LocationMarker({
     return q;
   }, [position]);
 
-  const showFlag = active || !egyptTravelFocus;
+  const showFlag = shouldShowFlag(active, routeArrived, flagMode, egyptTravelFocus);
+  const isRouting = active && !routeArrived;
 
   return (
     <group position={position} quaternion={orient}>
       <AiCityDot active={active} phase={phase} index={index} />
-      {portalEl && showFlag && (
-        <Html
-          portal={{ current: portalEl }}
-          center={false}
-          occlude={false}
-          distanceFactor={active ? 1.55 : 2.05}
-          zIndexRange={[200, 0]}
-          style={{
-            pointerEvents: 'none',
-            userSelect: 'none',
-            transform: 'translate(-50%, -100%)',
-            transformOrigin: 'bottom center',
-          }}
-        >
-          <GlobeFlagMarker
-            name={name}
-            flag={flag}
-            phase={phase}
-            active={active}
-            travelingRef={travelingRef}
-          />
-        </Html>
-      )}
+      {showFlag && flagVariant === 'pin' ? (
+        <GlobeSurfaceFlag flag={flag} active={active} traveling={isRouting} />
+      ) : null}
+      {showFlag && flagVariant === 'pole' ? (
+        <GlobeFlagHtmlPin
+          name={name}
+          flag={flag}
+          phase={phase}
+          active={active}
+          travelingRef={travelingRef}
+          htmlPortal={htmlPortal}
+        />
+      ) : null}
     </group>
   );
 }
@@ -379,15 +391,21 @@ function LocationMarker({
 function StopMarkers({
   activeIndex,
   travelingRef,
-  portalEl,
+  htmlPortal,
   egyptTravelFocus,
   stops,
+  flagMode,
+  flagVariant,
+  routeArrived,
 }: {
   activeIndex: number;
   travelingRef: React.RefObject<boolean>;
-  portalEl: HTMLDivElement | null;
+  htmlPortal?: React.RefObject<HTMLElement | null>;
   egyptTravelFocus: boolean;
   stops: readonly GlobeStop[];
+  flagMode: 'all' | 'active-only';
+  flagVariant: 'pin' | 'pole';
+  routeArrived: boolean;
 }) {
   const markers = useMemo(
     () =>
@@ -410,8 +428,11 @@ function StopMarkers({
           travelingRef={travelingRef}
           phase={stop.phase}
           index={i}
-          portalEl={portalEl ?? null}
+          htmlPortal={htmlPortal}
           egyptTravelFocus={egyptTravelFocus}
+          flagMode={flagMode}
+          flagVariant={flagVariant}
+          routeArrived={routeArrived}
         />
       ))}
     </group>
@@ -628,7 +649,16 @@ function AiRouteCourier({
   );
 }
 
-function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zoom }: GlobeSceneProps) {
+function GlobeRig({
+  stopIndex,
+  prevStopIndex,
+  htmlPortal,
+  egyptFocusRef,
+  stops,
+  zoom,
+  flagMode,
+  flagVariant,
+}: GlobeSceneProps) {
   const outerRef = useRef<THREE.Group>(null);
   const groupRef = useRef<THREE.Group>(null);
   const travelRef = useRef(1);
@@ -637,6 +667,7 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
   const lastIndexRef = useRef(0);
   const blendRef = useRef(resolveEgyptCamera(stopIndex, prevStopIndex, 1, stops));
   const travelingRef = useRef(false);
+  const [routeArrived, setRouteArrived] = useState(true);
   const [earthSegments, setEarthSegments] = useState(globeSegmentsForZoom(0));
   const earthSegmentsRef = useRef(earthSegments);
 
@@ -667,6 +698,7 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
         : rotationForLatLon(activeStop.lat, activeStop.lon);
     travelRef.current = 0;
     travelingRef.current = true;
+    setRouteArrived(false);
     lastIndexRef.current = stopIndex;
   }, [stopIndex, activeStop.id, activeStop.lat, activeStop.lon]);
 
@@ -681,8 +713,6 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
       city: THREE.MathUtils.damp(blendRef.current.city, target.city, 1.15, delta),
     };
     const cam = cameraFromEgyptBlend(blendRef.current);
-    // Gentle zoom-in that peaks mid-route so the travelling arc reads clearly,
-    // settling back to the base framing once arrived.
     const travelBoost = 1 + Math.sin(Math.min(1, travelRef.current) * Math.PI) * 0.05;
     outer.scale.setScalar(cam.scale * zoom * travelBoost);
 
@@ -697,7 +727,10 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
       const e = easeInOutCubic(travelRef.current);
       g.rotation.x = lerpAngle(fromRotRef.current.x, toRotRef.current.x, e);
       g.rotation.y = lerpAngle(fromRotRef.current.y, toRotRef.current.y, e);
-      if (travelRef.current >= 1) travelingRef.current = false;
+      if (travelRef.current >= 1) {
+        travelingRef.current = false;
+        setRouteArrived(true);
+      }
     }
   });
 
@@ -724,9 +757,12 @@ function GlobeRig({ stopIndex, prevStopIndex, portalEl, egyptFocusRef, stops, zo
         <StopMarkers
           activeIndex={stopIndex}
           travelingRef={travelingRef}
-          portalEl={portalEl ?? null}
+          htmlPortal={htmlPortal}
           egyptTravelFocus={egyptTravelFocus}
           stops={stops}
+          flagMode={flagMode}
+          flagVariant={flagVariant}
+          routeArrived={routeArrived}
         />
         {showArc && (
           <AiRouteCourier
@@ -790,6 +826,8 @@ function SceneLighting({
 function Scene({
   egyptFocusRef,
   transparent,
+  flagMode,
+  flagVariant,
   ...props
 }: GlobeSceneProps & { transparent: boolean }) {
   return (
@@ -798,7 +836,12 @@ function Scene({
       {!transparent ? (
         <Stars radius={90} depth={50} count={600} factor={3.2} saturation={0.12} fade speed={0.25} />
       ) : null}
-      <GlobeRig {...props} egyptFocusRef={egyptFocusRef} />
+      <GlobeRig
+        {...props}
+        egyptFocusRef={egyptFocusRef}
+        flagMode={flagMode}
+        flagVariant={flagVariant}
+      />
     </>
   );
 }
@@ -807,10 +850,12 @@ export default function HeroGlobeCanvas({
   stopIndex,
   prevStopIndex,
   paused,
-  portalEl = null,
+  htmlPortal,
   stops = GLOBE_STOPS,
   zoom = 1,
   transparent = false,
+  flagMode = 'all',
+  flagVariant = 'pole',
 }: HeroGlobeCanvasProps) {
   const egyptFocusRef = useRef(false);
 
@@ -837,11 +882,13 @@ export default function HeroGlobeCanvas({
         stopIndex={stopIndex}
         prevStopIndex={prevStopIndex}
         paused={paused}
-        portalEl={portalEl}
+        htmlPortal={htmlPortal}
         stops={stops}
         zoom={zoom}
         transparent={transparent}
         egyptFocusRef={egyptFocusRef}
+        flagMode={flagMode}
+        flagVariant={flagVariant}
       />
     </Canvas>
   );

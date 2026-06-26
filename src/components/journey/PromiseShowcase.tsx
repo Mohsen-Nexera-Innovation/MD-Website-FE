@@ -4,14 +4,10 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import type { JourneySectionMeta } from '@/content/journey';
 import JourneySection from '@/components/journey/JourneySection';
-import PathValueCards from '@/components/journey/PathValueCards';
 import PathAcademicProof from '@/components/journey/PathAcademicProof';
 import Arrow from '@/components/journey/Arrow';
-import {
-  PATH_CTAS,
-  PATH_INTRO,
-  PATH_VALUE_CARDS,
-} from '@/content/pathCards';
+import { ACADEMIC_PARTNERS_HEADING } from '@/content/universities';
+import { PATH_CTAS } from '@/content/pathCards';
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
@@ -21,10 +17,7 @@ type PromiseShowcaseProps = {
   meta: JourneySectionMeta;
 };
 
-/**
- * Choose Your Path — value pillars, academic proof, and dual CTAs (Figma).
- * Every value card is one click to the right destination.
- */
+/** Academic partners + professional bodies (homepage). */
 export default function PromiseShowcase({ meta }: PromiseShowcaseProps) {
   const [reduced, setReduced] = useState(false);
 
@@ -75,15 +68,9 @@ export default function PromiseShowcase({ meta }: PromiseShowcaseProps) {
 
   return (
     <JourneySection meta={meta} className="sec sec-promise" hideChapter hideBridge>
-      <header className="path-hero reveal">
-        <h2 id={`${meta.id}-title`} className="path-hero-title">
-          <span>{PATH_INTRO.headingLead}</span>
-          <span className="path-hero-accent">{PATH_INTRO.headingAccent}</span>
-        </h2>
-        <p className="path-hero-lead">{PATH_INTRO.lead}</p>
-      </header>
-
-      <PathValueCards cards={PATH_VALUE_CARDS} />
+      <h2 id={`${meta.id}-title`} className="sr-only">
+        {ACADEMIC_PARTNERS_HEADING}
+      </h2>
 
       <PathAcademicProof />
 

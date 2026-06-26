@@ -4,7 +4,6 @@ import Spine from '@/components/Spine';
 import JourneyProgress from '@/components/journey/JourneyProgress';
 import HeroAuthority from '@/components/journey/HeroAuthority';
 import OurStoryTimeline from '@/components/journey/OurStoryTimeline';
-import VisionValues from '@/components/journey/VisionValues';
 import ProductsShowcase from '@/components/journey/ProductsShowcase';
 import PartnersShowcase from '@/components/journey/PartnersShowcase';
 import ReachShowcase from '@/components/journey/ReachShowcase';
@@ -21,8 +20,6 @@ export default function Home() {
       <HeroAuthority />
 
       <OurStoryTimeline />
-
-      <VisionValues />
 
       <PartnersShowcase meta={journeyMeta('partners')} />
 

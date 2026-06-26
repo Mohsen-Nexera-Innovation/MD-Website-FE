@@ -38,6 +38,8 @@ export default function PartnerCardGlobe({ activeIndex }: PartnerCardGlobeProps)
         showHud={false}
         variant="card"
         zoom={0.92}
+        flagMode="active-only"
+        flagVariant="pin"
       />
     </div>
   );

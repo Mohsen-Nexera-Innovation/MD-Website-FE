@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { PartnerBrand } from '@/content/partners';
 import { CATALOG_PRODUCTS } from '@/content/products';
 import ProductCard from '@/components/ui/ProductCard';
+import PartnerBrandLogo from '@/components/ui/PartnerBrandLogo';
 import Arrow from '@/components/journey/Arrow';
 
 type PartnerDetailViewProps = {
@@ -35,6 +36,12 @@ export default function PartnerDetailView({ partner }: PartnerDetailViewProps) {
           />
         </div>
         <div className="partner-detail-intro">
+          <PartnerBrandLogo
+            slug={partner.slug}
+            name={partner.name}
+            className="partner-detail-logo"
+            priority
+          />
           <span className="partner-detail-region">{partner.region} · {partner.country}</span>
           <h1>{partner.name}</h1>
           <p className="partner-detail-excerpt">{partner.excerpt}</p>

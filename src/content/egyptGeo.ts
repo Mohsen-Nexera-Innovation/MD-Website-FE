@@ -65,3 +65,40 @@ export function geoToMapPercent(x: number, y: number) {
 export function isInMapBounds(x: number, y: number) {
   return x >= 0 && x <= 100 && y >= 0 && y <= 100;
 }
+
+type SvgPoint = { x: number; y: number };
+
+/** Parse M/L commands from the country outline into a closed polygon (SVG user units). */
+export function parseSvgPathPoints(path: string): SvgPoint[] {
+  const points: SvgPoint[] = [];
+  const re = /([ML])\s*([\d.]+)\s+([\d.]+)/g;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(path)) !== null) {
+    points.push({ x: parseFloat(match[2]), y: parseFloat(match[3]) });
+  }
+  return points;
+}
+
+export const EGYPT_OUTLINE_POLYGON = parseSvgPathPoints(EGYPT_OUTLINE_PATH);
+
+/** Ray-casting point-in-polygon (SVG user units). */
+export function pointInPolygon(point: SvgPoint, polygon: readonly SvgPoint[]) {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const xi = polygon[i].x;
+    const yi = polygon[i].y;
+    const xj = polygon[j].x;
+    const yj = polygon[j].y;
+    const intersect =
+      yi > point.y !== yj > point.y &&
+      point.x < ((xj - xi) * (point.y - yi)) / (yj - yi + Number.EPSILON) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+/** True when a map-percent pin falls inside the Egypt land outline (not just the bbox). */
+export function isPointInEgyptOutline(mapX: number, mapY: number) {
+  const pt = mapPercentToSvg(mapX, mapY);
+  return pointInPolygon(pt, EGYPT_OUTLINE_POLYGON);
+}

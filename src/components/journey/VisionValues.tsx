@@ -7,14 +7,20 @@ import {
   VISION_MISSION_INTRO,
 } from '@/content/values';
 
+type VisionValuesProps = {
+  /** When true, renders inside About MD (no homepage section padding / extra wrap). */
+  embedded?: boolean;
+};
+
 /**
- * Section 03 — Who We Are. Image-led vision/mission pillars plus value cards
+ * Who We Are — image-led vision/mission pillars plus core value cards
  * that surface the outcome each principle drives. Animates via MdMotion observers.
  */
-export default function VisionValues() {
-  return (
-    <section id="vision" className="sec sec-vision">
-      <div className="wrap">
+export default function VisionValues({ embedded = false }: VisionValuesProps) {
+  const sectionClass = embedded ? 'about-vision-block sec-vision' : 'sec sec-vision';
+
+  const content = (
+    <>
         <header className="sec-head sec-head--center reveal">
           <div className="eyebrow">{VISION_MISSION_INTRO.eyebrow}</div>
           <h2>{VISION_MISSION_INTRO.heading}</h2>
@@ -90,7 +96,12 @@ export default function VisionValues() {
             </article>
           ))}
         </div>
-      </div>
+    </>
+  );
+
+  return (
+    <section id="vision" className={sectionClass}>
+      {embedded ? content : <div className="wrap">{content}</div>}
     </section>
   );
 }

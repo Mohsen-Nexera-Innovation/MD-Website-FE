@@ -5,6 +5,7 @@ import PageHero from '@/components/layout/PageHero';
 import ProductsCatalog from '@/components/catalog/ProductsCatalog';
 import { PRODUCT_CATALOG_INTRO } from '@/content/products';
 import Arrow from '@/components/journey/Arrow';
+import { SHOP_BASE_URL } from '@/lib/shop';
 
 export const metadata: Metadata = {
   title: 'Products | MD Dental',
@@ -28,12 +29,25 @@ export default function ProductsPage() {
           <ProductsCatalog />
         </Suspense>
 
-        <section className="catalog-cta-band reveal" aria-labelledby="products-help-heading">
-          <h2 id="products-help-heading">Need help choosing?</h2>
-          <p>Our clinical support team can guide you to the right specifications for your practice.</p>
-          <Link href="/why-md-dental" className="md-btn md-btn-primary">
-            Why MD Dental <Arrow />
-          </Link>
+        <section className="catalog-cta-band catalog-cta-band--shop reveal" aria-labelledby="products-shop-heading">
+          <h2 id="products-shop-heading">Ready to order?</h2>
+          <p>
+            Browse specs here, then checkout on MD shop — authentic global brands, CE-certified,
+            delivered across 27 governorates.
+          </p>
+          <div className="catalog-cta-band-actions">
+            <a
+              href={SHOP_BASE_URL}
+              className="md-btn md-btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Shop now <Arrow />
+            </a>
+            <Link href="/why-md-dental" className="md-btn md-btn-ghost">
+              Why MD Dental
+            </Link>
+          </div>
         </section>
       </div>
     </div>
