@@ -3511,6 +3511,19 @@ body.md-home-hero .spine {
   display: none;
 }
 
+/* Tighter horizontal gutters on the homepage body */
+body.md-home-hero .wrap {
+  width: min(1200px, calc(100% - 12px));
+}
+
+body.md-home-hero .md-header-inner {
+  width: min(1280px, calc(100% - 12px));
+}
+
+body.md-home-hero .journey-hero .story-bridge {
+  max-width: min(1200px, calc(100% - 12px));
+}
+
 /* Story spine — ODYX-style left progress nav */
 .spine {
   position: fixed;
